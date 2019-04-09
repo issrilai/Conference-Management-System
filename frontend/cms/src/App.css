@@ -31,3 +31,11 @@
     transform: rotate(360deg);
   }
 }
+
+:root{
+  raisin-black: #242038;
+  slate-blue: #725AC1;
+  ube: #8D86C9;
+  blue-bell: #AA9FCE;
+  lavender-mist: #E2E1F7;
+}
