@@ -7,3 +7,6 @@ class User(models.Model):
     firstName = models.CharField(max_length=50, blank=False)
     lastName = models.CharField(max_length=50, blank=False)
     email = models.CharField(max_length=50, blank=False)
+
+    class Meta:
+        managed = False

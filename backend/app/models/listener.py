@@ -1,8 +1,9 @@
+from django.conf import settings
 from django.db import models
-
-from app.models.user import User
 
 
 class Listener(models.Model):
 
-    uid = models.ForeignKey(User, on_delete=models.CASCADE, blank=False)
+    uid = models.ForeignKey(settings.AUTH_USER_MODEL,
+                            on_delete=models.CASCADE,
+                            blank=False)
