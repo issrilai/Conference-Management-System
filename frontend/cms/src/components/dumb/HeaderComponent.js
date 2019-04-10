@@ -36,9 +36,9 @@ const theme = createMuiTheme({
             <Typography variant="h6" color="inherit" className="grow">
               Logo
             </Typography>
-            <Button color="inherit">{btns[0]}</Button>
-            <Button color="inherit">{btns[1]}</Button>
-            <Button color="inherit">{btns[2]}</Button>
+            <Button color="inherit" className="menuButton">{btns[0]}</Button>
+            <Button color="inherit" className="menuButton">{btns[1]}</Button>
+            <Button color="inherit" className="menuButton">{btns[2]}</Button>
           </Toolbar>
         </AppBar>
       </div>
