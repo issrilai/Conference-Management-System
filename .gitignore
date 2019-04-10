@@ -2,3 +2,5 @@ backend/.idea/
 backend/venv/
 backend/env/
 .idea
+
+*__pycache__*
