@@ -36,12 +36,12 @@ class SignUpPcComponent extends Component {
                 <form onSubmit={this.handleSubmit} className="FormFields">
                     <div className="FormField">
                         <label className="FormField_Label" htmlFor="username">Affiliation</label>
-                        <input id="affiliation" className="FormField_Input" placeholder="Enter your affiliation" name="affiliation" value={this.state.affiliation} onChange={this.handleChange} />
+                        <input id="affiliation" className="FormField_Input"  name="affiliation" value={this.state.affiliation} onChange={this.handleChange} />
                     </div>
 
                     <div className="FormField">
                         <label className="FormField_Label" htmlFor="password">Website</label>
-                        <input type="website" id="website" className="FormField_Input" placeholder="Enter your website" name="website" value={this.state.website} onChange={this.handleChange} />
+                        <input type="website" id="website" className="FormField_Input"  name="website" value={this.state.website} onChange={this.handleChange} />
                     </div>
                 </form>
             </div>
