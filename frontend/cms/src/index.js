@@ -5,9 +5,10 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import UserDummyStore from "./dummyMobx.js"
 import DummyList from "./DummyList"
+import Authentication from "./components/dumb/Authentication/Authentification";
 
 //ReactDOM.render(<App />, document.getElementById('root'));
-ReactDOM.render(<DummyList store={UserDummyStore}/>, document.getElementById('root'));
+ReactDOM.render(<Authentication/>, document.getElementById('root'));
 
 
 

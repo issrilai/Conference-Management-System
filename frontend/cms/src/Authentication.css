@@ -1,0 +1,253 @@
+.Authentication{
+    height:100vh;
+    width:100%;
+    display:flex;
+    color:white;
+    background-color: #e3dfee;
+    background-image: url("back.svg");
+}
+
+.CenterBox {
+    margin:auto;
+    margin-top:8.6%;
+    margin-left:23.5%;
+    background-color: #dcdefc;
+    border-radius: 600px;
+    width:50%;
+    height:58%;
+    box-shadow:0  0 3.6px 2.4px rgba(230, 224, 224, 0.78);
+}
+
+.Switcher {
+    display: flex;
+    justify-content: center;
+    height:13%;
+    margin-top:42.2%;
+}
+
+.Switcher_Item {
+    background-color:#a9a5e0;
+    color: #e7e4eb;
+    padding:19px;
+    border: none;
+    outline: none;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1em;
+
+}
+.Switcher_Item:first-child {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+.Switcher_Item:last-child {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.Switcher_Item_Active {
+    background-color: #8976EC;
+    color: white;
+}
+
+.FormTitle {
+    position: absolute;
+    left:40.9%;
+    justify-content: center;
+    margin-top:20px;
+    font-size: 1.7em;
+    font-weight: 300;
+    color: #a9a5e0;
+
+}
+
+.FormTitle_Active {
+
+    border-bottom: 2px solid #88BFF8;
+}
+
+.FormTitle_Link{
+    text-decoration: none;
+}
+
+.FormTitle_Link:first-child {
+    margin-right:20px;
+}
+
+.FormTitle_Link:last-child {
+    margin-left:20px;
+}
+
+.FormContent {
+    bottom:37%;
+    left:32%;
+    width:35%;
+    height:35%;
+    position: absolute;
+}
+
+.FormField {
+
+    margin-top:6%;
+    margin-left:20%;
+    margin-bottom:8%;
+    width:63%;
+}
+input {
+    text-align: center;
+}
+
+.FormField_Label {
+    display: block;
+    margin-left:95px;
+    margin-bottom:4.8px;
+    text-transform: uppercase;
+    font-size: 1em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #0094c7;
+}
+
+.FormField_Input {
+    width: 85%;
+    background-color: transparent;
+    border: none;
+    color: #242038;
+    outline: none;
+    border-bottom: 1.2px solid #553787;
+    font-size: 1em;
+    font-weight: 300;
+    padding-bottom: 9px;
+    margin-top: 10px;
+}
+
+.FormField_Link {
+    text-decoration: none;
+    display: inline-block;
+    margin-left:30%;
+    margin-top: 57%;
+    padding-top: 1.6%;
+    padding-bottom: 1.6%;
+    background-color: #593a8e;
+    color: #dcdefc;
+    font-size:1.35em;
+    font-weight:300;
+    width:36%;
+    height:20%;
+    border-radius: 25px;
+    text-align:center;
+    box-shadow:0  0 2.4px 2.4px rgba(112, 127, 130, 0.79);
+
+}
+
+.First_Field {
+    margin-left:2%;
+    margin-top:1.5%;
+    margin-bottom:8%;
+    width:63%;
+}
+.SignUpFields {
+    display:block;
+}
+
+.First_Label {
+    display: block;
+    margin-left:70px;
+    margin-bottom:3px;
+    text-transform: uppercase;
+    font-size: .8em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #0094c7;
+}
+
+.Second_Field {
+    margin-left:0;
+    margin-top:1.5%;
+    margin-bottom:8%;
+    width:63%;
+}
+
+.FRow {
+    display: inline-flex;
+    width:100%;
+    height:63px;
+}
+
+.Second_Label {
+    display: block;
+    margin-left:50px;
+    margin-bottom:3px;
+    text-transform: uppercase;
+    font-size: .8em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #0094c7;
+}
+
+.First_Input {
+    width: 85%;
+    background-color: transparent;
+    border: none;
+    color: #242038;
+    outline: none;
+    border-bottom: 1.2px solid #553787;
+    font-size: .95em;
+    font-weight: 300;
+    padding-bottom: 3px;
+    margin-top: 5px;
+}
+
+.Last_Field {
+    margin-left:25%;
+    margin-top:1.5%;
+    margin-bottom:8%;
+    width:63%;
+    color:#593a8e;
+
+    font-weight:300;
+}
+
+.Last_Label {
+    display: block;
+    margin-left:120px;
+    margin-bottom:3px;
+    text-transform: uppercase;
+    font-size: .8em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #0094c7;
+}
+
+.CRow {
+    display: inline-flex;
+    width:120%;
+    height:63px;
+    margin-left:-2%;
+    margin-top:2%;
+    text-align:justify;
+}
+
+.Forward {
+    margin-left:110px;
+    position: absolute;
+    bottom:9%;
+    text-decoration: none;
+    color:#593a8e;
+}
+
+.Forward2 {
+    margin-left:3.2%;
+    position: absolute;
+    bottom:9%;
+    text-decoration: none;
+    color:#593a8e;
+}
+
+.FormField_Author{
+
+    margin-top:15%;
+    margin-left:20%;
+    margin-bottom:8%;
+    width:63%;
+}
