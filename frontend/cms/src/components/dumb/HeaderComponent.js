@@ -6,8 +6,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 
 const theme = createMuiTheme({
@@ -39,6 +37,10 @@ const theme = createMuiTheme({
             <Button color="inherit" className="menuButton">{btns[0]}</Button>
             <Button color="inherit" className="menuButton">{btns[1]}</Button>
             <Button color="inherit" className="menuButton">{btns[2]}</Button>
+<<<<<<< HEAD
+=======
+            <Button color="inherit" className="menuButton">Sign out</Button>
+>>>>>>> d30099fb13d3d0763a9d2416f17222c6608f3aca
           </Toolbar>
         </AppBar>
       </div>
