@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+
 
 class SignInComponent extends Component {
     constructor() {
@@ -37,12 +37,12 @@ class SignInComponent extends Component {
                 <form onSubmit={this.handleSubmit} className="FormFields">
                     <div className="FormField">
                         <label className="FormField_Label" htmlFor="username">Username</label>
-                        <input id="username" className="FormField_Input" placeholder="Enter your username" name="username" value={this.state.username} onChange={this.handleChange} />
+                        <input id="username" className="FormField_Input"  name="username" value={this.state.username} onChange={this.handleChange} />
                     </div>
 
                     <div className="FormField">
                         <label className="FormField_Label" htmlFor="password">Password</label>
-                        <input type="password" id="username" className="FormField_Input" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.handleChange} />
+                        <input type="password" id="username" className="FormField_Input"  name="password" value={this.state.password} onChange={this.handleChange} />
                     </div>
                 </form>
             </div>

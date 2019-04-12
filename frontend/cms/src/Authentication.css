@@ -13,7 +13,7 @@
     margin-left:23.5%;
     background-color: #dcdefc;
     border-radius: 600px;
-    width:52%;
+    width:50%;
     height:58%;
     box-shadow:0  0 3.6px 2.4px rgba(230, 224, 224, 0.78);
 }
@@ -52,7 +52,7 @@
 
 .FormTitle {
     position: absolute;
-    left:42.4%;
+    left:40.9%;
     justify-content: center;
     margin-top:20px;
     font-size: 1.7em;
@@ -89,7 +89,7 @@
 .FormField {
 
     margin-top:6%;
-    margin-left:24%;
+    margin-left:20%;
     margin-bottom:8%;
     width:63%;
 }
@@ -124,7 +124,7 @@ input {
 .FormField_Link {
     text-decoration: none;
     display: inline-block;
-    margin-left:23.3%;
+    margin-left:30%;
     margin-top: 57%;
     padding-top: 1.6%;
     padding-bottom: 1.6%;
@@ -141,7 +141,7 @@ input {
 }
 
 .First_Field {
-    margin-left:10%;
+    margin-left:2%;
     margin-top:1.5%;
     margin-bottom:8%;
     width:63%;
@@ -152,7 +152,7 @@ input {
 
 .First_Label {
     display: block;
-    margin-left:60px;
+    margin-left:70px;
     margin-bottom:3px;
     text-transform: uppercase;
     font-size: .8em;
@@ -176,7 +176,7 @@ input {
 
 .Second_Label {
     display: block;
-    margin-left:60px;
+    margin-left:50px;
     margin-bottom:3px;
     text-transform: uppercase;
     font-size: .8em;
@@ -229,7 +229,7 @@ input {
 }
 
 .Forward {
-    margin-left:90px;
+    margin-left:110px;
     position: absolute;
     bottom:9%;
     text-decoration: none;
@@ -237,7 +237,7 @@ input {
 }
 
 .Forward2 {
-    margin-left:-14px;
+    margin-left:3.5%;
     position: absolute;
     bottom:9%;
     text-decoration: none;
@@ -247,7 +247,7 @@ input {
 .FormField_Author{
 
     margin-top:15%;
-    margin-left:24%;
+    margin-left:20%;
     margin-bottom:8%;
     width:63%;
 }
