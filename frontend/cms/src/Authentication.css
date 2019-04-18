@@ -10,10 +10,13 @@
 .CenterBox {
     margin:auto;
     margin-top:8.6%;
-    margin-left:23.5%;
+    margin-left:25%;
+    margin-right:25%;
     background-color: #dcdefc;
     border-radius: 600px;
     width:50%;
+    min-width:440px;
+    min-height:400px;
     height:58%;
     box-shadow:0  0 3.6px 2.4px rgba(230, 224, 224, 0.78);
 }
