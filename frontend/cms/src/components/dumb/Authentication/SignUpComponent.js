@@ -73,15 +73,15 @@ class SignUpComponent extends Component {
                             </div>
                             <div className="Second_Field">
                                 <label className="Second_Label" htmlFor="confirmpass">Confirm Password</label>
-                                <input type="confirmpass" id="confirmpass" className="First_Input"  name="confirmpass" value={this.state.confirmpass} onChange={this.handleChange} />
+                                <input type="password" id="confirmpass" className="First_Input"  name="confirmpass" value={this.state.confirmpass} onChange={this.handleChange} />
                             </div>
                         </div>
                         <div className="FRow">
                             <label className="First_Field">
                                 <NavLink to="/sign-up-author" className="Forward">I'm an author</NavLink>
                             </label>
-                            <label className="First_Field">
-                                <NavLink to="/sign-up-pc" className="Forward2">I'm a PC member</NavLink>
+                            <label className="Second_Field">
+                                <NavLink to="/sign-up-pc" className="Forward">I'm a PC member</NavLink>
                             </label>
                         </div>
                     </form>
