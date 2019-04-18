@@ -51,9 +51,8 @@
 }
 
 .FormTitle {
-    position: absolute;
-    left:40.9%;
-    justify-content: center;
+
+    text-align: center;
     margin-top:20px;
     font-size: 1.7em;
     font-weight: 300;
@@ -79,19 +78,17 @@
 }
 
 .FormContent {
-    bottom:37%;
-    left:32%;
-    width:35%;
-    height:35%;
-    position: absolute;
+
+    align-content: flex-start;
 }
 
 .FormField {
 
     margin-top:6%;
-    margin-left:20%;
-    margin-bottom:8%;
-    width:63%;
+    margin-left:18%;
+    margin-right:18%;
+    margin-bottom:10%;
+    width:64%;
 }
 input {
     text-align: center;
@@ -99,17 +96,18 @@ input {
 
 .FormField_Label {
     display: block;
-    margin-left:95px;
     margin-bottom:4.8px;
     text-transform: uppercase;
     font-size: 1em;
     font-weight: 400;
     letter-spacing: 1px;
     color: #0094c7;
+    width:100%;
+    text-align: center;
 }
 
 .FormField_Input {
-    width: 85%;
+    width: 100%;
     background-color: transparent;
     border: none;
     color: #242038;
@@ -124,27 +122,29 @@ input {
 .FormField_Link {
     text-decoration: none;
     display: inline-block;
-    margin-left:30%;
-    margin-top: 57%;
+    text-align: center;
+    margin-top: 0;
+    margin-right:38%;
+    margin-left:38%;
     padding-top: 1.6%;
     padding-bottom: 1.6%;
     background-color: #593a8e;
     color: #dcdefc;
     font-size:1.35em;
     font-weight:300;
-    width:36%;
-    height:20%;
+    width:24%;
+    height:40%;
     border-radius: 25px;
-    text-align:center;
     box-shadow:0  0 2.4px 2.4px rgba(112, 127, 130, 0.79);
 
 }
 
 .First_Field {
-    margin-left:2%;
+    margin-right:2%;
     margin-top:1.5%;
     margin-bottom:8%;
-    width:63%;
+    width:48%;
+    text-align: center;
 }
 .SignUpFields {
     display:block;
@@ -152,20 +152,22 @@ input {
 
 .First_Label {
     display: block;
-    margin-left:70px;
+    text-align: center;
     margin-bottom:3px;
     text-transform: uppercase;
     font-size: .8em;
     font-weight: 400;
     letter-spacing: 1px;
     color: #0094c7;
+    width:100%;
 }
 
 .Second_Field {
-    margin-left:0;
+    margin-left:2%;
     margin-top:1.5%;
     margin-bottom:8%;
-    width:63%;
+    width:48%;
+    text-align: center;
 }
 
 .FRow {
@@ -176,7 +178,7 @@ input {
 
 .Second_Label {
     display: block;
-    margin-left:50px;
+    text-align: center;
     margin-bottom:3px;
     text-transform: uppercase;
     font-size: .8em;
@@ -186,7 +188,7 @@ input {
 }
 
 .First_Input {
-    width: 85%;
+    width: 100%;
     background-color: transparent;
     border: none;
     color: #242038;
@@ -196,6 +198,7 @@ input {
     font-weight: 300;
     padding-bottom: 3px;
     margin-top: 5px;
+    align-content: center;
 }
 
 .Last_Field {
@@ -229,16 +232,7 @@ input {
 }
 
 .Forward {
-    margin-left:110px;
-    position: absolute;
-    bottom:9%;
-    text-decoration: none;
-    color:#593a8e;
-}
 
-.Forward2 {
-    margin-left:3.2%;
-    position: absolute;
     bottom:9%;
     text-decoration: none;
     color:#593a8e;
@@ -250,4 +244,17 @@ input {
     margin-left:20%;
     margin-bottom:8%;
     width:63%;
+}
+
+.NextButton {
+    width:100%;
+    position: relative;
+}
+
+.FormSwitcherContainer {
+    width:74%;
+    margin-left:13%;
+    margin-right:13%;
+    margin-top:4%;
+    margin-bottom:2.5%;
 }

@@ -17,21 +17,16 @@ class Authentification extends Component {
                             or
                             <NavLink to="/sign-up" activeClassName="FormTitle_Active" className="FormTitle_Link">Sign Up</NavLink>
                         </div>
-
-                        <div className="FormField">
+                        <div className="FormSwitcherContainer">
+                            {/*TODO
+                            SWHICH BETWEEN LOGIN AND SIGN UP FORM
+                            */}
+                            <SignInComponent/>
+                        </div>
+                        <div className="NextButton">
                             <Link to="/sign-in" className="FormField_Link">Next</Link>
                         </div>
 
-                        <Switch>
-                            <Route path="/sign-up" component={SignUpComponent}>
-                            </Route>
-                            <Route path="/sign-in" component={SignInComponent}>
-                            </Route>
-                            <Route path="/sign-up-author" component={SignUpAuthorComponent}>
-                            </Route>
-                            <Route path="/sign-up-pc" component={SignUpPcComponent}>
-                            </Route>
-                        </Switch>
 
                     </div>
                 </div>
@@ -40,3 +35,14 @@ class Authentification extends Component {
     }
 }
 export default Authentification;
+
+/*<Switch>
+                            <Route path="/sign-up" component={SignUpComponent}>
+                            </Route>
+                            <Route path="/sign-in" component={SignInComponent}>
+                            </Route>
+                            <Route path="/sign-up-author" component={SignUpAuthorComponent}>
+                            </Route>
+                            <Route path="/sign-up-pc" component={SignUpPcComponent}>
+                            </Route>
+                        </Switch>*/
