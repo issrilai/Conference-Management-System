@@ -6,9 +6,14 @@ import * as serviceWorker from './serviceWorker';
 import UserDummyStore from "./dummyMobx.js"
 import DummyList from "./DummyList"
 import Authentication from "./components/dumb/Authentication/Authentification";
+import ConferenceList from './components/dumb/Conference/ConferenceList';
+import storeConferences from './components/smart/getConferenceComponent'
+
+
 
 //ReactDOM.render(<App />, document.getElementById('root'));
-ReactDOM.render(<Authentication/>, document.getElementById('root'));
+//ReactDOM.render(<Authentication/>, document.getElementById('root'));
+ReactDOM.render(<ConferenceList store={storeConferences}/>, document.getElementById('root'));
 
 
 
