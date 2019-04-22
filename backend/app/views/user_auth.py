@@ -12,7 +12,6 @@ def auth(request):
     username = None  # default value
     form_login = FormLogin()
     if request.method == 'GET':
-
         if 'action' in request.GET:
             action = request.GET.get('action')
             if action == 'logout':
