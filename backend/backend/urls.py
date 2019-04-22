@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
-from app import views
+from app.views import HelloView
+from app.views.conference_view import ConferenceView
 
 router = routers.DefaultRouter()
-router.register(r'users', views.HelloView, 'user')
+router.register(r'users', HelloView, 'user')
+router.register(r'conferences', ConferenceView)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls))
