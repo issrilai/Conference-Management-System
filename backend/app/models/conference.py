@@ -9,3 +9,4 @@ class Conference(models.Model):
     submitDeadline = models.DateField(blank=False)
     bidDeadline = models.DateField(blank=False)
     reviewDeadline = models.DateField(blank=False)
+
