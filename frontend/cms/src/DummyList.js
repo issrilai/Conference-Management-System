@@ -1,5 +1,6 @@
 import { observer } from "mobx-react"
 import React, { Component } from 'react';
+// import HeaderComponent from "./components/dumb/HeaderComponent";
 
 const DummyList = observer(class DummyList extends Component{
     constructor(props) {
@@ -10,11 +11,13 @@ const DummyList = observer(class DummyList extends Component{
 
     render(){
         const {user, users} = this.props.store;
+        const btns = ["btn1", "btn2"];
         const listOfUsers = users.map(user => (
             <li>{user}</li>
         ));
         console.log(user);
         return <div>
+            {/*<HeaderComponent btns={btns}/>*/}
             <ul>
                 <h1>Users</h1>
                 <br/>

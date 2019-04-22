@@ -20,10 +20,13 @@ from rest_framework import routers
 from app.views.dummy_view import HelloView
 from app.views.user_auth import auth
 
-app_name = 'app'
+
+from app.views import HelloView
+from app.views.conference_view import ConferenceView
 
 router = routers.DefaultRouter()
-router.register(r'users', HelloView, 'users')
+router.register(r'users', HelloView, 'user')
+router.register(r'conferences', ConferenceView)
 
 urlpatterns = [
     # url(r'^', include('', namespace='app')),
