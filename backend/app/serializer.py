@@ -14,5 +14,5 @@ class ConferenceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Conference
         fields = ('id',
-            'name', 'dateStart', 'dateStop', 'abstractDeadline', 'submitDeadline', 'bidDeadline', 'reviewDeadline')
-
+                  'name', 'dateStart', 'dateStop', 'abstractDeadline', 'submitDeadline', 'bidDeadline',
+                  'reviewDeadline')

@@ -3,4 +3,10 @@ backend/venv/
 backend/env/
 .idea
 
+backend/backend/__pycache__/settings.cpython-35.pyc
+
+
+*.log
+*.pot
+*.pyc
 *__pycache__*
