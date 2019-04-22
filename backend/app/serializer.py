@@ -7,6 +7,3 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id', 'username')
 
-    def __int__(self, uid, username):
-        self._uid = uid
-        self._username = username
