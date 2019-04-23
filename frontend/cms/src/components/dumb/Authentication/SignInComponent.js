@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {extendObservable} from "mobx";
 import {observer} from "mobx-react";
-import {Link} from "react-router-dom";
 
 export default observer (
 class SignInComponent extends Component {
@@ -30,15 +29,23 @@ class SignInComponent extends Component {
            method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: JSON.stringify({
                     username: username,
                     password: password,
                 })
 
-        });
-        console.log(username);
+        }).then(function(response) {
+            return response.json();
+        })
+            .then(function(myJson) {
+                console.log(JSON.stringify(myJson));
+            });
+        console.log(JSON.stringify({
+            username: username,
+            password: password,
+        }));
         console.log(password);
     };
 
