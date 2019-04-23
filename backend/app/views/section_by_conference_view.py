@@ -1,5 +1,4 @@
 from rest_framework import viewsets
-import django_filters.rest_framework
 from app.models import Section
 from app.serializer import SectionSeriaizer
 
