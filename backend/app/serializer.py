@@ -1,6 +1,6 @@
 from rest_framework import serializers
 # from django.contrib.auth.models import User
-from app.models import Conference
+from app.models import Conference, Section
 from app.models.user import User
 
 
@@ -16,3 +16,9 @@ class ConferenceSerializer(serializers.ModelSerializer):
         fields = ('id',
                   'name', 'dateStart', 'dateStop', 'abstractDeadline', 'submitDeadline', 'bidDeadline',
                   'reviewDeadline')
+
+
+class SectionSeriaizer(serializers.ModelSerializer):
+    class Meta:
+        model = Section
+        fields = ('id', 'name', 'startHour', 'endHour', 'chair_id', 'confid_id')

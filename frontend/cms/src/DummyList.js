@@ -17,7 +17,6 @@ const DummyList = observer(class DummyList extends Component{
         ));
         console.log(user);
         return <div>
-            {/*<HeaderComponent btns={btns}/>*/}
             <ul>
                 <h1>Users</h1>
                 <br/>
@@ -32,6 +31,6 @@ const DummyList = observer(class DummyList extends Component{
             </ul>
         </div>
     }
-})
+});
 
 export default DummyList
