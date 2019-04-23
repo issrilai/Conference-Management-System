@@ -18,16 +18,19 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from app.views.dummy_view import HelloView
+from app.views.section_by_conference_view import SectionByConferenceView
 from app.views.user_auth import auth
 
 
 from app.views import HelloView
 from app.views.conference_view import ConferenceView
 
+
 router = routers.DefaultRouter()
 router.register(r'users', HelloView, 'user')
 router.register(r'conferences', ConferenceView)
-
+router.register(r'sections', SectionByConferenceView, base_name='section')
+# router.register(r'sections', SectionByConferenceView, base_name='section')
 urlpatterns = [
     # url(r'^', include('', namespace='app')),
     path('admin/', admin.site.urls),

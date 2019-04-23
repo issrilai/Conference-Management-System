@@ -23,10 +23,9 @@ class Authentification extends Component {
                             */}
                             <SignInComponent/>
                         </div>
-                        <div className="NextButton">
-                            <Link to="/sign-in" className="FormField_Link">Next</Link>
-                        </div>
-
+                        {/*<div className="NextButton">*/}
+                        {/*    <Link to="/sign-in" className="FormField_Link">Next</Link>*/}
+                        {/*</div>*/}
 
                     </div>
                 </div>
