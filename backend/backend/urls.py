@@ -31,5 +31,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('auth/', auth, name='auth'),
+    path('register-author/', RegisterAuthorView.registerAuthor, name='register-author'),
     # path('auth/', LoginView)
 ]
