@@ -15,7 +15,7 @@ const ConferenceList = observer(class ConferenceList extends React.Component{
         this.props.store.loadConferences();
 
         const listOfConferences = conferences.map(conference => (
-            <ConferenceToggle name={conference.name}/>
+            <ConferenceToggle name={conference.name} id={conference.id}/>
         ));
         return <div>
             <HeaderComponent btns={btns}/>

@@ -1,5 +1,7 @@
 import React from 'react';
 import '../../../styles/Conference.css'
+import SessionList from './SessionsList'
+import storeSections from '../../smart/getSectionsComponent'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
@@ -14,7 +16,8 @@ class ConferenceToggle extends React.Component{
       
         this.state = {
           expanded: null,
-          name: props.name
+          name: props.name,
+          id: props.id
         };
       }
     
@@ -27,14 +30,13 @@ class ConferenceToggle extends React.Component{
       render() {
         const { expanded } = this.state;
 
-
         return <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             <Typography className = "heading">{this.state.name}</Typography>
-            <Typography className="secondaryHeading">I am an expansion panel</Typography>
+            <Typography className="secondaryHeading">Details</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            
+            <SessionList store={storeSections} id={this.state.id}/>
           </ExpansionPanelDetails>
         </ExpansionPanel>
       }
