@@ -38,7 +38,10 @@ const SessionList = observer(class ConferenceList extends React.Component{
 
       render() {
         const {sections}= this.props.store;
-        this.props.store.loadSections(this.state.id);
+        //asta trebuie mutata intr-un "component did mount"
+        //nu se fac fetchuri in render
+        //  vezi conferenceList si getConferenceComponent
+        // this.props.store.loadSections(this.state.id);
 
         return (
           <List className= "listItems">

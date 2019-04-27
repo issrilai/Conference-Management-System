@@ -9,11 +9,19 @@ const ConferenceList = observer(class ConferenceList extends React.Component{
         super(props);
     }
 
-    render(){
-        const {conferences} = this.props.store;
-        const btns = [];
-        this.props.store.loadConferences();
+    componentDidMount() {
+        //numai daca nu s-a facut requestul, il apelez
+        // daca apelez loadConferences() in render, si fara niciun flag, render apeleaza la infint chestia
+        if (this.props.store.loaded === false) {
+            this.props.store.loadConferences();
+        }
+    }
 
+    render(){
+        console.log(this.props);
+        const {conferences} = this.props.store;
+        console.log(conferences);
+        const btns = [];
         const listOfConferences = conferences.map(conference => (
             <ConferenceToggle name={conference.name} id={conference.id}/>
         ));
@@ -23,8 +31,8 @@ const ConferenceList = observer(class ConferenceList extends React.Component{
                 {listOfConferences}
             </ul>
             </div>
-        
+
     }
-})
+});
 
 export default ConferenceList
