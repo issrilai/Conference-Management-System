@@ -1,11 +1,13 @@
 from django.contrib import admin
-
-# Register your models here.
-from .models import User
+from app.models import Listener
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('id', 'username', 'password', 'firstName', 'lastName', 'email')
+    list_display = ('id', 'username')
 
 
-admin.site.register(User, UserAdmin)
+class ListenerAdmin(admin.ModelAdmin):
+    list_display = ['id']
+
+
+admin.site.register(Listener, ListenerAdmin)
