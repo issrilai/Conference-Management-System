@@ -73,4 +73,3 @@ class SignInComponent extends Component {
     }
 }
 )
-// export default SignInComponent;
