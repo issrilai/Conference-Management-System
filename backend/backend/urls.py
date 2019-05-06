@@ -16,20 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-
 from app.views import *
-from app.views.user_auth import auth
-
+from app.views.section_view import SectionView
+from app.views.user_auth import auth, logout
 
 router = routers.DefaultRouter()
 router.register(r'users', HelloView, 'user')
 router.register(r'conferences', ConferenceView)
-router.register(r'sections', SectionByConferenceView, base_name='section')
+router.register(r'sectionsbyconf', SectionByConferenceView, base_name='sectionbyconf')
+router.register(r'sections', SectionView, base_name='section')
 
 urlpatterns = [
     # url(r'^', include('', namespace='app')),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('auth/', auth, name='auth'),
-    # path('auth/', LoginView)
+    path('logout/', logout, name='logout'),
+    # path('test/', , name='test'),
 ]
