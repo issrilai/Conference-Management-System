@@ -17,11 +17,20 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
-from app import views
+from app.views import *
+from app.views.user_auth import auth
+
 
 router = routers.DefaultRouter()
-router.register(r'users', views.HelloView, 'user')
+router.register(r'users', HelloView, 'user')
+router.register(r'conferences', ConferenceView)
+router.register(r'sections', SectionByConferenceView, base_name='section')
+
 urlpatterns = [
+    # url(r'^', include('', namespace='app')),
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    path('auth/', auth, name='auth'),
+    path('register-author/', RegisterAuthorView.registerAuthor, name='register-author'),
+    # path('auth/', LoginView)
 ]

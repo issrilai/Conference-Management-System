@@ -251,7 +251,7 @@ input {
 
 .NextButton {
     width:100%;
-    position: relative;
+    /*position: absolute;*/
 }
 
 .FormSwitcherContainer {

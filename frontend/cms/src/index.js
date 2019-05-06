@@ -3,16 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import UserDummyStore from "./dummyMobx.js"
-import DummyList from "./DummyList"
-import Authentication from "./components/dumb/Authentication/Authentification";
-
+import RoutingBasicComponent from "./RoutingComponent";
 //ReactDOM.render(<App />, document.getElementById('root'));
-ReactDOM.render(<Authentication/>, document.getElementById('root'));
 
+ReactDOM.render(<RoutingBasicComponent/>, document.getElementById('root'));
 
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
