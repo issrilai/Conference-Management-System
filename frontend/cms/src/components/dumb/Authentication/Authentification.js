@@ -21,7 +21,7 @@ class Authentification extends Component {
                             {/*TODO
                             SWHICH BETWEEN LOGIN AND SIGN UP FORM
                             */}
-                            <SignInComponent/>
+                            <SignUpComponent/>
                         </div>
                         <div className="NextButton">
                             <Link to="/sign-in" className="FormField_Link">Next</Link>

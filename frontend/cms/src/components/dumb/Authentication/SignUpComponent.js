@@ -48,32 +48,32 @@ class SignUpComponent extends Component {
                         <div className="FRow">
                             <div className="First_Field">
                                 <label className="First_Label" htmlFor="firstname">First Name</label>
-                                <input type="text" id="firstname" className="First_Input" name="firstname" value={this.state.firstname} onChange={this.handleChange} />
+                                <input required type="text" id="firstname" className="First_Input" name="firstname" value={this.state.firstname} onChange={this.handleChange} />
                             </div>
 
                             <div className="Second_Field">
                                 <label className="Second_Label" htmlFor="lastname">Last Name</label>
-                                <input type="text" id="lastname" className="First_Input"  name="lastname" value={this.state.lastname} onChange={this.handleChange} />
+                                <input required type="text" id="lastname" className="First_Input"  name="lastname" value={this.state.lastname} onChange={this.handleChange} />
                             </div>
                         </div>
                         <div className="FRow">
                             <div className="First_Field">
                                 <label className="First_Label" htmlFor="username">Username</label>
-                                <input type="text" id="username" className="First_Input"  name="username" value={this.state.username} onChange={this.handleChange} />
+                                <input required type="text" id="username" className="First_Input"  name="username" value={this.state.username} onChange={this.handleChange} />
                             </div>
                             <div className="Second_Field">
                                 <label className="Second_Label" htmlFor="email">Email Address</label>
-                                <input type="email" id="email" className="First_Input"  name="email" value={this.state.email} onChange={this.handleChange} />
+                                <input required type="email" id="email" className="First_Input"  name="email" value={this.state.email} onChange={this.handleChange} />
                             </div>
                         </div>
                         <div className="FRow">
                             <div className="First_Field">
                                 <label className="First_Label" htmlFor="password">Password</label>
-                                <input type="password" id="password" className="First_Input"  name="password" value={this.state.password} onChange={this.handleChange} />
+                                <input required type="password" id="password" className="First_Input"  name="password" value={this.state.password} onChange={this.handleChange} />
                             </div>
                             <div className="Second_Field">
                                 <label className="Second_Label" htmlFor="confirmpass">Confirm Password</label>
-                                <input type="password" id="confirmpass" className="First_Input"  name="confirmpass" value={this.state.confirmpass} onChange={this.handleChange} />
+                                <input required type="password" id="confirmpass" className="First_Input"  name="confirmpass" value={this.state.confirmpass} onChange={this.handleChange} />
                             </div>
                         </div>
                         <div className="FRow">
