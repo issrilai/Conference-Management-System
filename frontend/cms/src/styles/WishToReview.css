@@ -1,0 +1,11 @@
+.root{
+      display: flex
+}
+
+.formControl{
+      margin: 3px
+}
+
+.group{
+      margin: 3px 0
+}
