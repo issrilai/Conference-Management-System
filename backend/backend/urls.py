@@ -33,4 +33,6 @@ urlpatterns = [
     path('auth/', auth, name='auth'),
     # path('logout/', logout, name='logout'),
     # path('test/', , name='test'),
+    path('register-author/', RegisterAuthorView.registerAuthor, name='register-author'),
+    # path('auth/', LoginView)
 ]
