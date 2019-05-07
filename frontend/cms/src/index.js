@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import UserDummyStore from "./dummyMobx.js"
 import DummyList from "./DummyList"
 import Authentication from "./components/dumb/Authentication/Authentification";
 import ConferenceList from './components/dumb/Conference/ConferenceList';

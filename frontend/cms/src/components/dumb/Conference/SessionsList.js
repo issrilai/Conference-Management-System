@@ -36,6 +36,14 @@ const SessionList = observer(class ConferenceList extends React.Component{
         });
       };
 
+      componentDidMount() {
+        //numai daca nu s-a facut requestul, il apelez
+        // daca apelez loadConferences() in render, si fara niciun flag, render apeleaza la infint chestia
+        if (this.props.store.loaded === false) {
+            this.props.store.loadSections();
+        }
+    }
+
       render() {
         const {sections}= this.props.store;
         //asta trebuie mutata intr-un "component did mount"
@@ -46,7 +54,8 @@ const SessionList = observer(class ConferenceList extends React.Component{
         return (
           <List className= "listItems">
             {sections.map(value => (
-              <ListItem key={value} role={undefined} dense button onClick={this.handleToggle(value)}>
+              value.confid_id == this.state.id)
+              ?<ListItem key={value} role={undefined} dense button onClick={this.handleToggle(value)}>
                 <Checkbox
                   checked={this.state.checked.indexOf(value) !== -1}
                   tabIndex={-1}
@@ -54,7 +63,8 @@ const SessionList = observer(class ConferenceList extends React.Component{
                 />
                 <ListItemText primary={`${value.name}. From ${value.startHour} to ${value.endHour}`} />
               </ListItem>
-            ))}
+              :<div></div>
+            )}
           </List>
         );
       }

@@ -18,7 +18,7 @@ from django.urls import path, include
 from rest_framework import routers
 from app.views import *
 from app.views.section_view import SectionView
-from app.views.user_auth import auth, logout
+from app.views.user_auth import auth
 
 router = routers.DefaultRouter()
 router.register(r'users', HelloView, 'user')
@@ -31,6 +31,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('auth/', auth, name='auth'),
-    path('logout/', logout, name='logout'),
+    # path('logout/', logout, name='logout'),
     # path('test/', , name='test'),
 ]

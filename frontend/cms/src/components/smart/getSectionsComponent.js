@@ -4,12 +4,14 @@ class storeSections {
     constructor(){
         extendObservable(this, {
             sections: [],
-            loadSections: action(function(confId) {
-                fetch(`http://127.0.0.1:8000/api/sections/?confid=${confId}`)
+            loaded: false,
+            loadSections: action(function() {
+                fetch(`http://127.0.0.1:8000/api/sections/`)
             .then(data => data.json())
             .then(response => {
                 console.log(response);
                 this.sections = response;
+                this.loaded = true;
             })
             })
         })
