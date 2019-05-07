@@ -1,5 +1,5 @@
     
-import {action, extendObservable} from "mobx";
+import {action, extendObservable} from "mobx/lib/mobx";
 
 class UserDummyStore {
     constructor(){
