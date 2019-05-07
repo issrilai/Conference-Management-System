@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from app.views import *
+from app.views.proposal_view import ProposalView
 from app.views.section_view import SectionView
 from app.views.user_auth import auth
 
@@ -25,6 +26,7 @@ router.register(r'users', HelloView, 'user')
 router.register(r'conferences', ConferenceView)
 router.register(r'sectionsbyconf', SectionByConferenceView, base_name='sectionbyconf')
 router.register(r'sections', SectionView, base_name='section')
+router.register(r'proposals', ProposalView, base_name='proposal')
 
 urlpatterns = [
     # url(r'^', include('', namespace='app')),
