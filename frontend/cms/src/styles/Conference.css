@@ -8,8 +8,11 @@
     font-size: 15rem;
   }
 
-.listItems{
+.listItems {
     width: '100%';
     max-width: 360;
     background-color: '#8D86C9';
+    width: 100%;
+    /*max-width: 360%;*/
+    /*background-color: #8D86C9;*/
 }

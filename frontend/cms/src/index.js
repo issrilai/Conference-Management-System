@@ -15,6 +15,9 @@ import storeConferences from './components/smart/getConferenceComponent'
 ReactDOM.render(<ConferenceList store={storeConferences}/>, document.getElementById('root'));
 
 import RoutingBasicComponent from "./RoutingComponent";
+import AuthorProposalComponent from "./components/dumb/AuthorProposalComponent";
+import SignUpPcComponent from "./components/dumb/Authentication/SignUpPcComponent";
+import Authentification from "./components/dumb/Authentication/Authentification";
 //ReactDOM.render(<App />, document.getElementById('root'));
 
 ReactDOM.render(<RoutingBasicComponent/>, document.getElementById('root'));

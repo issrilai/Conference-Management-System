@@ -17,13 +17,15 @@ const ConferenceList = observer(class ConferenceList extends React.Component{
         }
     }
 
+
+
     render(){
         console.log(this.props);
         const {conferences} = this.props.store;
         console.log(conferences);
         const btns = [];
         const listOfConferences = conferences.map(conference => (
-            <ConferenceToggle name={conference.name} id={conference.id}/>
+            <ConferenceToggle name={conference.name} id={conference.id} key={conference.id} />
         ));
         return <div>
             <HeaderComponent btns={btns}/>
