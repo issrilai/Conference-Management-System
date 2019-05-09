@@ -5,11 +5,11 @@ class storeSections {
         extendObservable(this, {
             sections: [],
             loaded: false,
-            loadSections: action(function(confId) {
-                fetch(`http://127.0.0.1:8000/api/sections/?confid=${confId}`)
+            loadSections: action(function() {
+                fetch(`http://127.0.0.1:8000/api/sections/`)
             .then(data => data.json())
             .then(response => {
-                console.log(response, "in load sections");
+                console.log(response);
                 this.sections = response;
                 this.loaded = true;
             })

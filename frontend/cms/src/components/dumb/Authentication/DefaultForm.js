@@ -58,7 +58,7 @@ class DefaultForm extends React.Component {
                     </label>
                     <label className="First_Field">
                         <div className="NextButton">
-                            <button onClick={loadPCMemberForm} className="FormField_Link">pc member</button>
+                            <button onClick={loadAuthorForm} className="FormField_Link">pc member</button>
                         </div>
                     </label>
                 </div>
