@@ -4,6 +4,7 @@ import '../../../styles/Conference.css'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import WishToReviewList from './WishToReviewList';
 
 const ProposallList = observer(class PropList extends React.Component{
 
@@ -30,6 +31,7 @@ const ProposallList = observer(class PropList extends React.Component{
               value.sid_id == this.state.id)
               ?<ListItem key={value} role={undefined}>
                 <ListItemText primary={`${value.name}`} />
+                <WishToReviewList></WishToReviewList>
               </ListItem>
               :<div></div>
             )}
