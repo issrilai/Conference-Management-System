@@ -9,6 +9,8 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
+import WishToReviewList from './WishToReviewList';
+
 
 class ConferenceToggle extends React.Component{
     constructor(props) {
@@ -36,7 +38,8 @@ class ConferenceToggle extends React.Component{
             <Typography className="secondaryHeading">Details</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <SessionList store={storeSections} id={this.state.id}/>
+            {/* <SessionList store={storeSections} id={this.state.id}/> */}
+            <WishToReviewList></WishToReviewList>
           </ExpansionPanelDetails>
         </ExpansionPanel>
       }

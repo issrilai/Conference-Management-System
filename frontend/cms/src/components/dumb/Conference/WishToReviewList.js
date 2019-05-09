@@ -1,6 +1,12 @@
 import React from 'react';
 import { observer } from "mobx-react"
-import '../../../styles/wishToReview.css'
+import '../../../styles/WishToReview.css'
+import PropTypes from 'prop-types';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 const WishToReviewList = observer(class RadioButtonsGroup extends React.Component {
     state = {
@@ -15,28 +21,25 @@ const WishToReviewList = observer(class RadioButtonsGroup extends React.Componen
       const { classes } = this.props;
   
       return (
-        <div className="root">
+        <div className="form">
           <FormControl component="fieldset" className="formControl">
-            <FormLabel component="legend"></FormLabel>
+            <FormLabel component="legend">Do you want to review?</FormLabel>
             <RadioGroup
-              aria-label="Do you want to review?"
+              aria-label="WishToReview"
               name="wishToReview"
               className="group"
               value={this.state.value}
               onChange={this.handleChange}
+              row
             >
-              <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-              <FormControlLabel value="maybe" control={<Radio />} label="Maybe" />
-              <FormControlLabel value="no" control={<Radio />} label="No" />
+              <FormControlLabel className="label" value="yes" control={<Radio />} label="Yes" />
+              <FormControlLabel className="label" value="maybe" control={<Radio />} label="Maybe" />
+              <FormControlLabel className="label" value="no" control={<Radio />} label="No" />
             </RadioGroup>
           </FormControl>
         </div>
       );
     }
 });
-  
-RadioButtons.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
 
 export default WishToReviewList
