@@ -18,7 +18,15 @@ class ConferenceSerializer(serializers.ModelSerializer):
                   'reviewDeadline')
 
 
-class SectionSeriaizer(serializers.ModelSerializer):
+class SectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Section
         fields = ('id', 'name', 'startHour', 'endHour', 'chair_id', 'confid_id')
+
+
+# class SectionProposalSerializer(serializers.ModelSerializer):
+#     proposals = serializers.RelatedField()
+#
+#     class Meta:
+#         model = Section
+#         fields = ('id', 'name', )

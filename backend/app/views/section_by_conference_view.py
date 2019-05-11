@@ -1,10 +1,10 @@
 from rest_framework import viewsets
 from app.models import Section
-from app.serializer import SectionSeriaizer
+from app.serializer import SectionSerializer
 
 
 class SectionByConferenceView(viewsets.ModelViewSet):
-    serializer_class = SectionSeriaizer
+    serializer_class = SectionSerializer
 
     def get_queryset(self):
         if len(self.request.query_params) == 1:

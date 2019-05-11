@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Link, NavLink, Switch } from 'react-router-dom';
 import '../../../Authentication.css';
-import SignUpComponent from './SignUpComponent'
 import SignInComponent from './SignInComponent'
-import SignUpAuthorComponent from "./SignUpAuthorComponent";
-import SignUpPcComponent from "./SignUpPcComponent";
+
 
 class Authentification extends Component {
     render() {
@@ -21,12 +19,11 @@ class Authentification extends Component {
                             {/*TODO
                             SWHICH BETWEEN LOGIN AND SIGN UP FORM
                             */}
-                            <SignInComponent/>
+                            <SignInComponent action={this.props.action}/>
                         </div>
                         {/*<div className="NextButton">*/}
                         {/*    <Link to="/sign-in" className="FormField_Link">Next</Link>*/}
                         {/*</div>*/}
-
                     </div>
                 </div>
             </Router>
