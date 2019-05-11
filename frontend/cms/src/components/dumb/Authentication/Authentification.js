@@ -1,13 +1,10 @@
 import React, {Component} from 'react';
 import '../../../Authentication.css';
-<<<<<<< Updated upstream
 import {BrowserRouter, NavLink} from "react-router-dom";
 import SignUpPcComponent from "./SignUpPcComponent";
 import SignUpAuthorComponent from "./SignUpAuthorComponent";
 import RoutingConfiguredComponent from "../../../RoutingConfiguredComponent";
-=======
 import SignInComponent from './SignInComponent'
->>>>>>> Stashed changes
 
 
 class Authentification extends Component {
@@ -24,10 +21,8 @@ class Authentification extends Component {
                             <NavLink to="/sign-up" activeClassName="FormTitle_Active" className="FormTitle_Link">Sign Up</NavLink>
                         </div>
                         <div className="FormSwitcherContainer">
-<<<<<<< Updated upstream
                             <RoutingConfiguredComponent/>
                         </div>
-=======
                             {/*TODO
                             SWHICH BETWEEN LOGIN AND SIGN UP FORM
                             */}
@@ -36,7 +31,6 @@ class Authentification extends Component {
                         {/*<div className="NextButton">*/}
                         {/*    <Link to="/sign-in" className="FormField_Link">Next</Link>*/}
                         {/*</div>*/}
->>>>>>> Stashed changes
                     </div>
                 </div>
 
