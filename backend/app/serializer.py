@@ -19,12 +19,15 @@ class ConferenceSerializer(serializers.ModelSerializer):
 
 
 class ProposalSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Proposal
+        fields = ('id', 'name', 'keyWords', 'abstract', 'pdf', 'isAccepted', 'aid_id', 'sid_id')
+
+
+class SectionSeriaizer(serializers.ModelSerializer):
+
     class Meta:
         model = Proposal
         fields = ('id', 'name', 'keyWords', 'abstract', 'pdf', 'isAccepted', 'aid_id')
 
-
-class SectionSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Section
-        fields = ('id', 'name', 'startHour', 'endHour', 'chair_id', 'confid_id')
