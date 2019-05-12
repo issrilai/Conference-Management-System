@@ -14,9 +14,9 @@ import storeConferences from './components/smart/getConferenceComponent'
 //ReactDOM.render(<Authentication/>, document.getElementById('root'));
 ReactDOM.render(<ConferenceList store={storeConferences}/>, document.getElementById('root'));
 
-import RoutingBasicComponent from "./RoutingComponent";
+//import RoutingBasicComponent from "./RoutingComponent";
 //ReactDOM.render(<App />, document.getElementById('root'));
 
-ReactDOM.render(<RoutingBasicComponent/>, document.getElementById('root'));
+//ReactDOM.render(<RoutingBasicComponent/>, document.getElementById('root'));
 
 serviceWorker.unregister();
