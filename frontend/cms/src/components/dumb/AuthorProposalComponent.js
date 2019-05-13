@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import '../../AuthorProposal.css'
+import '../../styles/AuthorProposal.css'
 import '../../Authentication.css'
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';

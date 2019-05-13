@@ -4,5 +4,5 @@ from app.serializer import ProposalSerializer
 
 
 class ProposalView(viewsets.ModelViewSet):
+    queryset = Proposal.objects.all()
     serializer_class = ProposalSerializer
-    queryset = Proposal.objects.select_related('sid')
