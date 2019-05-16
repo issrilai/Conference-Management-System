@@ -13,9 +13,13 @@ import storeConferences from './components/smart/getConferenceComponent'
 
 //ReactDOM.render(<App />, document.getElementById('root'));
 //ReactDOM.render(<Authentication/>, document.getElementById('root'));
-ReactDOM.render(<ConferenceList store={storeConferences}/>, document.getElementById('root'));
+// ReactDOM.render(<ConferenceList store={storeConferences}/>, document.getElementById('root'));
 
-// import RoutingBasicComponent from "./RoutingComponent";
+import RoutingBasicComponent from "./RoutingComponent";
+import AuthorProposalComponent from "./components/dumb/AuthorProposalComponent";
+import SignUpPcComponent from "./components/dumb/Authentication/SignUpPcComponent";
+import Authentification from "./components/dumb/Authentication/Authentification";
+import AddConference from "./components/dumb/Conference/AddConference";
 //ReactDOM.render(<App />, document.getElementById('root'));
 =======
 ReactDOM.render(<App />, document.getElementById('root'));
@@ -23,6 +27,6 @@ ReactDOM.render(<App />, document.getElementById('root'));
 //ReactDOM.render(<Authentication/>, document.getElementById('root'));
 >>>>>>> Stashed changes
 
-// ReactDOM.render(<ConferenceList store={}/>, document.getElementById('root'));
+ReactDOM.render(<AddConference/>, document.getElementById('root'));
 
 serviceWorker.unregister();

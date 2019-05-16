@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from app.views import *
+from app.views.add_conference_view import AddConfereceView
 from app.views.proposal_view import ProposalView
 from app.views.section_view import SectionView
 from app.views.user_auth import auth
@@ -36,5 +37,7 @@ urlpatterns = [
     # path('logout/', logout, name='logout'),
     # path('test/', , name='test'),
     path('register-author/', RegisterAuthorView.registerAuthor, name='register-author'),
+    path('add-conference/', AddConfereceView.addConference, name='add-conference')
+
     # path('auth/', LoginView)
 ]
