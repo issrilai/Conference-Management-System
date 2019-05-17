@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import Home from "./components/dumb/HomeComponent";
-import { HashRouter as Router, Route, Link, NavLink, Switch } from 'react-router-dom';
-import Authentification from "./components/dumb/Authentication/Authentification";
+import { HashRouter as Router} from 'react-router-dom';
 import Cookies from "universal-cookie/es6/Cookies";
-//import {Cookies} from 'react-cookie';
+import RoutingBasicComponent from "./RoutingComponent";
 
 class App extends Component {
 
   constructor(props)
   {
     super(props);
-
-    //this.handleLog = this.handleLog.bind(this);
 
     const cookies = new Cookies();
     this.state = {
@@ -31,8 +27,7 @@ class App extends Component {
         <Router>
           <div className='App'>
             <div className='Home'>
-              {!this.state.logged ? <Authentification action={this.handleLog.bind(this)}/> : ''}
-              {this.state.logged ? <Home/> : ''}
+              <RoutingBasicComponent logged={this.state.logged} action={this.handleLog.bind(this)}/>
             </div>
           </div>
         </Router>

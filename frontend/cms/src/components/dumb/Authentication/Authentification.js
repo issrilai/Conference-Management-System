@@ -21,16 +21,8 @@ class Authentification extends Component {
                             <NavLink to="/sign-up" activeClassName="FormTitle_Active" className="FormTitle_Link">Sign Up</NavLink>
                         </div>
                         <div className="FormSwitcherContainer">
-                            <RoutingConfiguredComponent/>
+                            <RoutingConfiguredComponent action={this.props.action}/>
                         </div>
-                            {/*TODO
-                            SWHICH BETWEEN LOGIN AND SIGN UP FORM
-                            */}
-                            <SignInComponent action={this.props.action}/>
-                        </div>
-                        {/*<div className="NextButton">*/}
-                        {/*    <Link to="/sign-in" className="FormField_Link">Next</Link>*/}
-                        {/*</div>*/}
                     </div>
                 </div>
 
