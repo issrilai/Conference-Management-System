@@ -1,27 +1,26 @@
 import {Route, Switch, BrowserRouter, HashRouter, Redirect} from "react-router-dom";
 import React, {Component} from "react";
 import Authentification from "./components/dumb/Authentication/Authentification";
-import Home from "./components/dumb/HomeComponent";
+import { createBrowserHistory } from 'history'
+import ConferenceList from "./components/dumb/Conference/ConferenceList";
+import storeConferences from './components/smart/getConferenceComponent'
 
 class RoutingBasicComponent extends Component
 {
     constructor(props)
     {
         super(props);
-
-        if(this.props.logged === true)
-        {
-
-        }
     }
 
     render()
     {
+        const history = require('history').createBrowserHistory();
+
         return (
             <HashRouter>
                 <Switch>
-                    {this.props.logged?<Route exact path='/' component={Home}/>:''}
-                    {!this.props.logged?<Route exact path='/' component={Authentification}/>:''}
+                    {this.props.logged?<Route exact path='/' render={() => <ConferenceList store={storeConferences}/>}/>:''}
+                    {!this.props.logged?<Route exact path='/' render={() => <Authentification history={history} action={this.props.action}/>}/>:''}
                     {!this.props.logged?<Route exact path='/sign-in' render={() => <Authentification action={this.props.action}/>}/>:''}
                     {!this.props.logged?<Route exact path='/sign-up' component={Authentification}/>:''}
                 </Switch>
@@ -30,6 +29,3 @@ class RoutingBasicComponent extends Component
     }
 }
 export default RoutingBasicComponent
-
-
-

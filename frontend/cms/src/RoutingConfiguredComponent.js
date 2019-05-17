@@ -16,8 +16,8 @@ class RoutingConfiguredComponent extends Component
         return (
             <HashRouter>
                 <Switch>
-                    <Route exact path='/' component={withRouter(SignInComponent)}/>
-                    <Route path="/sign-in" render={() => <SignInComponent action={this.props.action}/>}/>
+                    <Route exact path='/' render={() => <SignInComponent history={this.props.history} action={this.props.action}/>}/>
+                    <Route path="/sign-in" render={() => <SignInComponent history={this.props.history} action={this.props.action}/>}/>
                     <Route path="/sign-up" component={withRouter(SignUpComponent)}/>
                 </Switch>
             </HashRouter>

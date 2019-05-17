@@ -21,7 +21,7 @@ class Authentification extends Component {
                             <NavLink to="/sign-up" activeClassName="FormTitle_Active" className="FormTitle_Link">Sign Up</NavLink>
                         </div>
                         <div className="FormSwitcherContainer">
-                            <RoutingConfiguredComponent action={this.props.action}/>
+                            <RoutingConfiguredComponent history={this.props.history} action={this.props.action}/>
                         </div>
                     </div>
                 </div>

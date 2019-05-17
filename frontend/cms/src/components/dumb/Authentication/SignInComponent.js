@@ -29,6 +29,7 @@ class SignInComponent extends Component {
         console.log('The form was submitted with the following data:');
         const {username, password} = this;
         const action = this.props.action;
+        const history = this.props.history;
 
         fetch('http://127.0.0.1:8000/auth/', {
            method: 'POST',
@@ -44,10 +45,19 @@ class SignInComponent extends Component {
         }).then(function(response) {
             return response.json();
         })
-            .then(function(myJson) {
-                cookies.set('session_key', myJson['session_key'], /*{expires: new Date(Date.now() + 10000)}*/);
-                cookies.set('role', myJson['role'], /*{expires: new Date(Date.now() + 10000)}*/);
-                action();
+            .then(function(myJson)
+            {
+                if(myJson['session_key'] !== undefined)
+                {
+                    cookies.set('session_key', myJson['session_key'], /*{expires: new Date(Date.now() + 10000)}*/);
+                    cookies.set('role', myJson['role'], /*{expires: new Date(Date.now() + 10000)}*/);
+                    action();
+                    history.push('/Home');
+                }
+                else
+                {
+                    alert("Bad credentials!");
+                }
             });
     };
 
@@ -70,7 +80,6 @@ class SignInComponent extends Component {
                     </div>
                 </form>
             </div>
-
         );
     }
 }
