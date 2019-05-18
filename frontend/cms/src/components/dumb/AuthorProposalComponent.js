@@ -7,6 +7,8 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import NextButtonComponent from "./NextButtonComponent";
 import {Link} from "react-router-dom";
 import Router from "react-router-dom/es/Router";
+import {extendObservable} from "mobx";
+import {observer} from "mobx-react";
 
 const theme = createMuiTheme({
     palette: {
@@ -21,35 +23,63 @@ const theme = createMuiTheme({
         },
     },
 });
-
-
+export default observer (
 class AuthorProposalComponent extends  Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
-        this.state = {
+        extendObservable(this, {
             name:'',
             keywords:'',
             abstract:'',
             proposal:''
-        };
+        });
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
-    handleChange = name => event => {
-        this.setState({ [name]: event.target.value });
+    handleChange = e => {
+        const {name, value} = e.target;
+        this[name] = value;
     };
 
-    handleSubmit(e) {
+    handleSubmit = e => {
         e.preventDefault();
 
         console.log('The form was submitted with the following data:');
-        console.log(this.state);
-    }
+        console.log(this.props);
+        const {username, password} = this;
+        fetch('http://127.0.0.1:8000/submit-proposal/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify({
+                name: this.name,
+                keywords: this.keywords,
+                abstract: this.abstract,
+                proposal: this.proposal,
+            })
+
+        }).then(function(response) {
+            return response.json();
+        })
+            .then(function(myJson) {
+                console.log(JSON.stringify(myJson));
+            });
+        console.log(JSON.stringify({
+            name: this.name,
+            keywords: this.keywords,
+            abstract: this.abstract,
+            proposal: this.proposal,
+        }));
+
+    };
+
     render() {
+        const {name, keywords, abstract, proposal} = this;
         return(
             <MuiThemeProvider theme={theme}>
                 <form onSubmit={this.handleSubmit} className="root">
@@ -59,8 +89,8 @@ class AuthorProposalComponent extends  Component {
                             label="Title"
                             className='textField'
                             name="name"
-                            value={this.state.name}
-                            onChange={this.handleChange('name')}
+                            value={name}
+                            onChange={this.handleChange}
                             margin="normal"
                             variant={"outlined"}
                         />
@@ -71,8 +101,8 @@ class AuthorProposalComponent extends  Component {
                             label="Keywords"
                             className='textField'
                             name="keywords"
-                            value={this.state.keywords}
-                            onChange={this.handleChange('keywords')}
+                            value={keywords}
+                            onChange={this.handleChange}
                             margin="normal"
                             variant={"outlined"}
                         />
@@ -83,8 +113,8 @@ class AuthorProposalComponent extends  Component {
                             required
                             label="Abstract"
                             rowsMax="8" name="abstract"
-                            value={this.state.abstract}
-                            onChange={this.handleChange('abstract')}
+                            value={abstract}
+                            onChange={this.handleChange}
                             className="textField"
                             margin="normal"
                             variant={"outlined"}
@@ -93,7 +123,7 @@ class AuthorProposalComponent extends  Component {
 
                     <div className="inputField">
                         <div className="submitText">Submit the proposal in PDF format</div>
-                        <input required type="file" accept="application/pdf" className="inputPdf" name="proposal" value={this.state.proposal} onChange={this.handleChange('proposal')} />
+                        <input required type="file" accept="application/pdf" className="inputPdf" name="proposal" value={proposal} onChange={this.handleChange} />
                     </div>
                     <div className="NextButton NextButtonAuthor">
                         <input type="submit" className="FormField_Link"/>
@@ -102,6 +132,5 @@ class AuthorProposalComponent extends  Component {
             </MuiThemeProvider>
         );
     }
-}
+})
 
-export default AuthorProposalComponent;

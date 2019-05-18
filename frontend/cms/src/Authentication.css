@@ -261,3 +261,19 @@ input {
     margin-top:4%;
     margin-bottom:2.5%;
 }
+
+.NextButton {
+    margin-top:2%;
+    width:100%;
+    /*position: absolute;*/
+}
+
+.AuthorButton {
+    width:40%;
+   margin:auto;
+}
+
+.PcButton {
+    width:60%;
+    margin:auto;
+}
