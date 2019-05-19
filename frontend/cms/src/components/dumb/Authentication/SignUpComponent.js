@@ -66,7 +66,12 @@ class SignUpComponent extends Component {
                 return response.json();
             })
                 .then(function(myJson) {
-                    console.log(JSON.stringify(myJson));
+                    if (myJson === "ok") {
+                        console.log("here should be an automatically signup")
+                    }
+                    else {
+                        alert("Invalid data! Please try again")
+                    }
                 });
         }
         if(this.affiliation !== "" && this.website === "")
@@ -91,7 +96,12 @@ class SignUpComponent extends Component {
                 return response.json();
             })
                 .then(function(myJson) {
-                    console.log(JSON.stringify(myJson));
+                    if (myJson === "ok") {
+                        //    here should be an automatically sign in
+                    }
+                    else {
+                        console.log("error");
+                    }
                 });
         }
         console.log(JSON.stringify({
@@ -120,7 +130,13 @@ class SignUpComponent extends Component {
                 return response.json();
             })
                 .then(function(myJson) {
-                    console.log(JSON.stringify(myJson));
+                    if (myJson === "ok") {
+                    //    here should be an automatically sign in
+                    }
+                    else {
+                        console.log("error");
+                    }
+
                 });
         }
     }
