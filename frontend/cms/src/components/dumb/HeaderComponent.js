@@ -36,7 +36,7 @@ const theme = createMuiTheme({
             </Typography>
             <Button color="inherit" className="menuButton">{btns[0]}</Button>
             <Button color="inherit" className="menuButton">{btns[1]}</Button>
-            <Button color="inherit" className="menuButton">{btns[2]}</Button>
+            <Button color="inherit" className="menuButton">fsfsd</Button>
             <Button color="inherit" className="menuButton">Sign out</Button>
           </Toolbar>
         </AppBar>
