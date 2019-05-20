@@ -1,11 +1,15 @@
-.root{
-      display: flex
+.form{
+      float: right;
 }
 
 .formControl{
-      margin: 3px
+      margin: 3px;
 }
 
 .group{
-      margin: 3px 0
+      margin: 5px 0;
+}
+
+.label{
+      width: 150px;
 }

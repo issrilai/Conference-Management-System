@@ -13,3 +13,4 @@ class Proposal(models.Model):
     abstract = models.CharField(max_length=500, blank=False)
     pdf = models.FileField(upload_to='pdf', blank=False)
     isAccepted = models.BooleanField(default=False)
+

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../../styles/Conference.css'
 import SessionList from './SessionsList'
-import storeSections from '../../smart/getSectionsComponent'
+import storeProposals from '../../smart/getProposalsComponent'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
@@ -9,9 +9,9 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
-import SectionListDropDown from './SectionListDropDown';
+import ProposallList from './ProposalList';
 
-class ConferenceToggle extends React.Component{
+class SectionToggle extends React.Component{
     constructor(props) {
         super(props);
       
@@ -34,14 +34,13 @@ class ConferenceToggle extends React.Component{
         return <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             <Typography className = "heading">{this.state.name}</Typography>
-            <Typography className="secondaryHeading">Details</Typography>
+            <Typography className="secondaryHeading"></Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            {/*<SessionList store={storeSections} id={this.state.id}/>*/}
-            <SectionListDropDown store={storeSections} id={this.state.id}></SectionListDropDown>
+            <ProposallList store={storeProposals} id={this.state.id}/>
           </ExpansionPanelDetails>
         </ExpansionPanel>
       }
 }
 
-export default ConferenceToggle
+export default SectionToggle
