@@ -1,7 +1,6 @@
 import {Route, Switch, BrowserRouter, HashRouter, Redirect} from "react-router-dom";
 import React, {Component} from "react";
 import Authentification from "./components/dumb/Authentication/Authentification";
-import { createBrowserHistory } from 'history'
 import ConferenceList from "./components/dumb/Conference/ConferenceList";
 import storeConferences from './components/smart/getConferenceComponent'
 
@@ -14,8 +13,6 @@ class RoutingBasicComponent extends Component
 
     render()
     {
-        const history = require('history').createBrowserHistory();
-
         return (
             <HashRouter>
                 <Switch>
