@@ -19,30 +19,19 @@ const ConferenceList = observer(class ConferenceList extends React.Component{
     }
 
     render(){
-        const cookies = new Cookies();
         console.log(this.props);
         const {conferences} = this.props.store;
         console.log(conferences);
-        let btns = [];
-        if (cookies.get('role') === "listener") {
-            btns = ["SIGN OUT"]
-        }
-        if (cookies.get('role') === 'author') {
-            btns = ["authorButton","SIGN OUT"]
-        }
-        if (cookies.get('role') === "cm" ) {
-            btns = ["ADD CONFERENCE", "SIGN OUT"]
-        }
-        console.log(btns);
+
         const listOfConferences = conferences.map(conference => (
             <ConferenceToggle name={conference.name} id={conference.id}/>
         ));
-        return <div>
-            <HeaderComponent btns={btns}/>
+
+        return (
             <ul>
                 {listOfConferences}
             </ul>
-            </div>
+        )
 
     }
 });
