@@ -14,8 +14,9 @@ import WishToReviewList from "./components/dumb/Conference/WishToReviewList";
 ReactDOM.render(<App />, document.getElementById('root'));
 
 
-// ReactDOM.render(<WishToReviewList/>, document.getElementById('root'));
-// ReactDOM.render(<AddConference/>, document.getElementById('root'));
+//import RoutingBasicComponent from "./RoutingComponent";
+//ReactDOM.render(<App />, document.getElementById('root'));
 
+//ReactDOM.render(<RoutingBasicComponent/>, document.getElementById('root'));
 
 serviceWorker.unregister();
