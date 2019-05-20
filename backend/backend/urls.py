@@ -37,6 +37,8 @@ urlpatterns = [
     # path('logout/', logout, name='logout'),
     # path('test/', , name='test'),
     path('register-author/', RegisterAuthorView.registerAuthor, name='register-author'),
+    path('register-listener/', RegisterAuthorView.registerListener, name='register-listener'),
+    path('register-pcmember/', RegisterAuthorView.registerPCMember, name='register-pcmember'),
     path('add-conference/', AddConfereceView.addConference, name='add-conference')
 
     # path('auth/', LoginView)
