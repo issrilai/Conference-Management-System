@@ -78,8 +78,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-if 'DB_PASS' not in os.environ:
-    raise Exception('Add enviroment variable DB_PASS')
+# if 'DB_PASS' not in os.environ:
+#     raise Exception('Add enviroment variable DB_PASS')
 
 
 DATABASES = {
@@ -87,7 +87,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'cmsDB',
         'USER': 'postgres',
-        'PASSWORD': os.environ['DB_PASS'],
+        #'PASSWORD': os.environ['DB_PASS'],
+        'PASSWORD': 'root1234',
         'HOST': 'localhost',
         'PORT': '5432',
     }
