@@ -4,5 +4,5 @@ from app.serializer import SectionSeriaizer
 
 
 class SectionView(viewsets.ModelViewSet):
-    serializer_class = SectionSerializer
+    serializer_class = SectionSeriaizer
     queryset = Section.objects.all()
