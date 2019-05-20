@@ -20,8 +20,9 @@ class RoutingBasicComponent extends Component
             <HashRouter>
                 <Switch>
                     {this.props.logged?<Route exact path='/' render={() => <ConferenceList store={storeConferences}/>}/>:''}
-                    {!this.props.logged?<Route exact path='/' render={() => <Authentification history={history} action={this.props.action}/>}/>:''}
-                    {!this.props.logged?<Route exact path='/sign-in' render={() => <Authentification action={this.props.action}/>}/>:''}
+                    {!this.props.logged?<Route exact path='/' render={() => <Authentification action={this.props.action}/>}/>:''}
+                    {!this.props.logged?<Route exact path='/sign-in' render={() => <Authentification action={this.props.action}/>}/>:
+                                            <Redirect to='/'/>}
                     {!this.props.logged?<Route exact path='/sign-up' component={Authentification}/>:''}
                 </Switch>
             </HashRouter>

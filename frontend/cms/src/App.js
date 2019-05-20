@@ -21,7 +21,8 @@ class App extends Component {
     this.setState({logged: true});
   }
 
-  render() {
+  render()
+  {
     return (
       <div className="App">
         <Router>
