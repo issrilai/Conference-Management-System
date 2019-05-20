@@ -38,8 +38,10 @@ class SignUpComponent extends Component {
     handleChange = e => {
         const {name, value} = e.target;
         this[name] = value;
-        console.log(name, value)
+        console.log(name, value);
+
     };
+
 
     handleSubmit(e) {
         e.preventDefault();
