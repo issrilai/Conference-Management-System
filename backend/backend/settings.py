@@ -78,8 +78,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-if 'DB_PASS' not in os.environ:
-    raise Exception('Add enviroment variable DB_PASS')
+# if 'DB_PASS' not in os.environ:
+#     raise Exception('Add enviroment variable DB_PASS')
 
 
 DATABASES = {
