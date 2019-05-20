@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from app.models import Section
+from app.models import Section, Proposal
 from app.serializer import SectionSeriaizer
 
 

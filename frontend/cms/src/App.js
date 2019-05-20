@@ -1,25 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { HashRouter as Router} from 'react-router-dom';
+import Cookies from "universal-cookie/es6/Cookies";
+import RoutingBasicComponent from "./RoutingComponent";
 
 class App extends Component {
-  render() {
+
+  constructor(props)
+  {
+    super(props);
+
+    const cookies = new Cookies();
+    this.state = {
+      logged: (cookies.get('session_key') !== undefined),
+    };
+  }
+
+  handleLog()
+  {
+    this.setState({logged: true});
+  }
+
+  render()
+  {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Router>
+          <div className='App'>
+            <div className='Home'>
+              <RoutingBasicComponent logged={this.state.logged} action={this.handleLog.bind(this)}/>
+            </div>
+          </div>
+        </Router>
       </div>
     );
   }

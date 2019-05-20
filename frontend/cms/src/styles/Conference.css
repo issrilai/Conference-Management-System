@@ -1,0 +1,15 @@
+.heading {
+    font-size: 15rem;
+    flex-basis: 33.33%;
+    flex-shrink: 0;
+  }
+
+.secondaryHeading {
+    font-size: 15rem;
+  }
+
+.listItems{
+    width: '100%';
+    max-width: 360;
+    background-color: '#8D86C9';
+}

@@ -4,6 +4,7 @@ import {BrowserRouter, NavLink} from "react-router-dom";
 import SignUpPcComponent from "./SignUpPcComponent";
 import SignUpAuthorComponent from "./SignUpAuthorComponent";
 import RoutingConfiguredComponent from "../../../RoutingConfiguredComponent";
+import SignInComponent from './SignInComponent'
 
 
 class Authentification extends Component {
@@ -20,7 +21,7 @@ class Authentification extends Component {
                             <NavLink to="/sign-up" activeClassName="FormTitle_Active" className="FormTitle_Link">Sign Up</NavLink>
                         </div>
                         <div className="FormSwitcherContainer">
-                            <RoutingConfiguredComponent/>
+                            <RoutingConfiguredComponent history={this.props.history} action={this.props.action}/>
                         </div>
                     </div>
                 </div>

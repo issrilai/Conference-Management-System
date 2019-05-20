@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {extendObservable} from "mobx";
 import {observer} from "mobx-react";
+import Cookies from "universal-cookie";
 
 export default observer (
 class SignInComponent extends Component {
@@ -23,8 +24,12 @@ class SignInComponent extends Component {
     handleSubmit = e => {
         e.preventDefault();
 
+        const cookies = new Cookies();
+
         console.log('The form was submitted with the following data:');
         const {username, password} = this;
+        const action = this.props.action;
+
         fetch('http://127.0.0.1:8000/auth/', {
            method: 'POST',
             headers: {
@@ -39,14 +44,19 @@ class SignInComponent extends Component {
         }).then(function(response) {
             return response.json();
         })
-            .then(function(myJson) {
-                console.log(JSON.stringify(myJson));
+            .then(function(myJson)
+            {
+                if(myJson['session_key'] !== undefined)
+                {
+                    cookies.set('session_key', myJson['session_key'], /*{expires: new Date(Date.now() + 10000)}*/);
+                    cookies.set('role', myJson['role'], /*{expires: new Date(Date.now() + 10000)}*/);
+                    action();
+                }
+                else
+                {
+                    alert("Bad credentials!");
+                }
             });
-        console.log(JSON.stringify({
-            username: username,
-            password: password,
-        }));
-        console.log(password);
     };
 
     render() {
@@ -68,7 +78,6 @@ class SignInComponent extends Component {
                     </div>
                 </form>
             </div>
-
         );
     }
 }

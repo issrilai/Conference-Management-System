@@ -5,13 +5,16 @@
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
+    "history": "latest",
     "mobx": "^5.9.4",
     "mobx-react": "^5.4.3",
     "react": "^16.8.6",
+    "react-cookie": "^4.0.0",
     "react-dom": "^16.8.6",
+    "react-router": "latest",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8",
-    "react-router": "latest"
+    "react-scripts": "^3.0.1",
+    "universal-cookie": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

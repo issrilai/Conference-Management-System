@@ -1,0 +1,15 @@
+.form{
+      float: right;
+}
+
+.formControl{
+      margin: 3px;
+}
+
+.group{
+      margin: 5px 0;
+}
+
+.label{
+      width: 150px;
+}
