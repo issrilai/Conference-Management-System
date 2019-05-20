@@ -1,10 +1,11 @@
 import React from "react";
 import TextField from "@material-ui/core/es/TextField/TextField";
 import {createMuiTheme, MuiThemeProvider} from "@material-ui/core";
-import "../../../styles/AuthorProposal.css"
+import "../../../styles/AddConference.css"
 import FormControl from '@material-ui/core/FormControl';
 import {observer} from "mobx-react";
 import {extendObservable} from "mobx";
+import Typography from "@material-ui/core/Typography";
 
 
 const theme = createMuiTheme({
@@ -98,6 +99,7 @@ export default observer(
                                     onChange={this.handleChange}
                                     margin="normal"
                                     variant={"outlined"}
+
                                 />
                             </div>
                             <div className="inputField">
@@ -111,7 +113,10 @@ export default observer(
                                     onChange={this.handleChange}
                                     InputLabelProps={{
                                         shrink: true,
+                                        style: {fontSize: 21}
                                     }}
+                                    InputProps={{style : {marginTop:37}}}
+                                    fullWidth
                                 />
                             </div>
                             <div className="inputField">
@@ -125,7 +130,10 @@ export default observer(
                                     onChange={this.handleChange}
                                     InputLabelProps={{
                                         shrink: true,
+                                        style: {fontSize: 21}
                                     }}
+                                    InputProps={{style : {marginTop:37}}}
+                                    fullWidth
                                 />
                             </div>
                             <div className="inputField">
@@ -139,7 +147,10 @@ export default observer(
                                     onChange={this.handleChange}
                                     InputLabelProps={{
                                         shrink: true,
+                                        style: {fontSize: 21}
                                     }}
+                                    InputProps={{style : {marginTop:37}}}
+                                    fullWidth
                                 />
                             </div>
                             <div className="inputField">
@@ -153,7 +164,10 @@ export default observer(
                                     onChange={this.handleChange}
                                     InputLabelProps={{
                                         shrink: true,
+                                        style: {fontSize: 21}
                                     }}
+                                    InputProps={{style : {marginTop:37}}}
+                                    fullWidth
                                 />
                             </div>
                             <div className="inputField">
@@ -167,7 +181,10 @@ export default observer(
                                     onChange={this.handleChange}
                                     InputLabelProps={{
                                         shrink: true,
+                                        style: {fontSize: 21}
                                     }}
+                                    InputProps={{style : {marginTop:37}}}
+                                    fullWidth
                                 />
                             </div>
                             <div className="inputField">
@@ -181,12 +198,15 @@ export default observer(
                                     onChange={this.handleChange}
                                     InputLabelProps={{
                                         shrink: true,
+                                        style: {fontSize: 21}
                                     }}
+                                    InputProps={{style : {marginTop:37}}}
+                                    fullWidth
                                 />
                             </div>
                         </FormControl>
                     </MuiThemeProvider>
-                    <button className="FormField_Link" onClick={this.handleSubmit}>Submit</button>
+                    <button className="ConferenceButton" onClick={this.handleSubmit}>Submit</button>
                 </React.Fragment>
             )
 

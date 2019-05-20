@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.utils import json
-from app.models import Foo
+
 
 class SubmitProposalView():
     @api_view(['POST'])
