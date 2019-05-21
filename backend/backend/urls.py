@@ -37,10 +37,13 @@ urlpatterns = [
     path('logout/', logout, name='logout'),
     # path('logout/', logout, name='logout'),
     # path('test/', , name='test'),
-    path('register-author/', RegisterAuthorView.registerAuthor, name='register-author'),
-    path('register-listener/', RegisterAuthorView.registerListener, name='register-listener'),
-    path('register-pcmember/', RegisterAuthorView.registerPCMember, name='register-pcmember'),
+    path('register-author/', Register.registerAuthor, name='register-author'),
+    path('register-listener/', Register.registerListener, name='register-listener'),
+    path('register-reviewer/', Register.registerReviewer, name='register-reviewer'),
+    path('register-chair/', Register.registerChair, name='register-chair'),
+    path('register-pcmember/', Register.registerPCMember, name='register-pcmember'),
     path('add-conference/', AddConfereceView.addConference, name='add-conference')
+
 
     # path('auth/', LoginView)
 ]
