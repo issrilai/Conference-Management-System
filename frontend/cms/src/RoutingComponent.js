@@ -7,10 +7,8 @@ import HeaderComponent from "./components/dumb/HeaderComponent";
 import Cookies from "universal-cookie";
 import AddConference from "./components/dumb/Conference/AddConference";
 
-class RoutingBasicComponent extends Component
-{
-    constructor(props)
-    {
+class RoutingBasicComponent extends Component {
+    constructor(props) {
         super(props);
     }
 
@@ -18,31 +16,42 @@ class RoutingBasicComponent extends Component
         const cookies = new Cookies();
         let btns = [];
         if (cookies.get('role') === "listener") {
-            btns = [{name:"SIGN OUT",
-                    path: "/caca"}]
+            btns = [{
+                name: "SIGN OUT",
+                path: "/caca"
+            }]
 
         }
         if (cookies.get('role') === 'author') {
             btns = [{name: "authorButton", path: "/caca"}]
         }
-        if (cookies.get('role') === "cm" ) {
-            btns = [{name:"ADD CONFERENCE", path: "/addConference"}]
+        if (cookies.get('role') === "chair") {
+            btns = [{name: "ADD CONFERENCE", path: "/addConference"}]
         }
+        if (cookies.get('role') === "reviewer") {
+            btns = [{name: "reviewerDoSomething", path: "/caca"}];
+        }
+
         return (
             <HashRouter>
-                {this.props.logged? <HeaderComponent btns = {btns}/> : "" }
+                {this.props.logged ? <HeaderComponent btns={btns}/> : ""}
                 <Switch>
                     <Route exact path='/addConference' component={AddConference}/>
-                    {this.props.logged?<Route exact path='/' render={() => <ConferenceList store={storeConferences}/>}/>:''}
-                    {!this.props.logged?<Route exact path='/' render={() => <Authentification action={this.props.action}/>}/>:''}
-                    {!this.props.logged?<Route exact path='/sign-in' render={() => <Authentification action={this.props.action}/>}/>:
-                                            <Redirect to='/'/>}
-                    {!this.props.logged?<Route exact path='/sign-up' component={Authentification}/>:''}
+                    {this.props.logged ?
+                        <Route exact path='/' render={() => <ConferenceList store={storeConferences}/>}/> : ''}
+                    {!this.props.logged ?
+                        <Route exact path='/' render={() => <Authentification action={this.props.action}/>}/> : ''}
+                    {!this.props.logged ? <Route exact path='/sign-in'
+                                                 render={() => <Authentification action={this.props.action}/>}/> :
+                        <Redirect to='/'/>}
+                    {!this.props.logged ? <Route exact path='/sign-up' component={Authentification}/> : ''}
 
                 </Switch>
 
             </HashRouter>
         );
+
     }
 }
+
 export default RoutingBasicComponent
