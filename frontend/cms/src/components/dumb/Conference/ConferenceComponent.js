@@ -10,6 +10,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 import SectionListDropDown from './SectionListDropDown';
+import Cookies from "universal-cookie";
 
 class ConferenceToggle extends React.Component{
     constructor(props) {
@@ -28,6 +29,19 @@ class ConferenceToggle extends React.Component{
         });
       };
 
+      show(){
+        const cookies = new Cookies();
+        if(cookies.get('role') === "listener")
+        {
+          return <SessionList store={storeSections} id={this.state.id}/>
+        }
+        else
+        if(cookies.get('role') === "reviewer" || cookies.get('role') === "chair")
+        {
+          return <SectionListDropDown store={storeSections} id={this.state.id}></SectionListDropDown>
+        }
+      }
+
       render() {
         const { expanded } = this.state;
 
@@ -37,8 +51,7 @@ class ConferenceToggle extends React.Component{
             <Typography className="secondaryHeading">Details</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            {/*<SessionList store={storeSections} id={this.state.id}/>*/}
-            <SectionListDropDown store={storeSections} id={this.state.id}></SectionListDropDown>
+            {this.show()}
           </ExpansionPanelDetails>
         </ExpansionPanel>
       }
