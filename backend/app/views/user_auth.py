@@ -1,4 +1,6 @@
 from django.contrib.auth import authenticate
+from django.contrib.sessions.models import Session
+from django.core.exceptions import ObjectDoesNotExist
 from django.http import JsonResponse
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import BasePermission
@@ -9,21 +11,24 @@ from app.models import Chair, Author, Reviewer
 from app.models import ProgramCommitteeMember
 
 
-@api_view(['GET'])
+@api_view(['POST'])
 def logout(request):
-    # logout(request)
-    username = None  # default value
-    if request.method == 'GET':
-        if 'action' in request.GET:
-            action = request.GET.get('action')
-            if action == 'logout':
-                if 'username' in request.session:
-                    request.session.flush()
-                # return redirect('auth')
-    #
-    # if 'username' in request.session: username = request.session['username'] print(request.session.get_expiry_age(
-    # ))  # session lifetime in seconds(from now) print(request.session.get_expiry_date())  # datetime.datetime
-    # object which represents the moment in time at which the session will expire
+    data = request.body
+    body = json.loads(data)
+    key = body['session_key']
+
+    try:
+        session = Session.objects.get(session_key=key)
+    except ObjectDoesNotExist as e:
+        session = None
+
+    if session is not None:
+        uid = session.get_decoded().get('uid')
+        print(uid)
+        session.delete()
+        return Response("Okay", status=HTTP_200_OK)
+
+    return Response("You are not logged", status=HTTP_401_UNAUTHORIZED)
 
 
 @api_view(['POST'])
@@ -34,19 +39,6 @@ def auth(request):
     username = body['username']
     password = body['password']
 
-    # propo_on_sect = Proposal.objects.select_related('section')
-    #
-    # for i in propo_on_sect:
-    #     print(i)
-
-    # if 'username' in request.session:
-    #     print(request.session['username'])
-
-    # sess = Session.objects.get(pk='an79nyccjkuy47mt4i0a5ztpmy02gcpy')
-    # print(sess.session_data)
-    # print(sess.get_decoded())
-    # sess.delete()
-
     if request.user.is_authenticated:
         return Response("Already authenticated", status=HTTP_403_FORBIDDEN)
     else:
@@ -55,7 +47,7 @@ def auth(request):
         if user is not None:
             # login(request, user)
 
-            request.session['username'] = user.username
+            request.session['uid'] = user.id
             if request.session.session_key is None:
                 request.session.save()
             session_key = request.session.session_key

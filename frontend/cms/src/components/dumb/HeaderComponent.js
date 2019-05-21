@@ -23,16 +23,20 @@ const theme = createMuiTheme({
     },
 });
 
-class HeaderComponent extends React.Component {
+class HeaderComponent extends React.Component
+{
     constructor(props) {
         super(props);
     }
 
 
     render() {
+        const {actionLogout} = this.props;
+
         function handleButtonClicked() {
-            alert("aici se face logout");
+            actionLogout();
         }
+
         const {btns} = this.props;
         return (
             <MuiThemeProvider theme={theme}>

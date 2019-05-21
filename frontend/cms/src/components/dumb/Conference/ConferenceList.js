@@ -4,8 +4,8 @@ import ConferenceToggle from './ConferenceComponent';
 import HeaderComponent from '../HeaderComponent';
 import Cookies from "universal-cookie";
 
-const ConferenceList = observer(class ConferenceList extends React.Component{
-
+// const ConferenceList = observer(
+class ConferenceList extends React.Component{
     constructor(props) {
         super(props);
     }
@@ -34,6 +34,6 @@ const ConferenceList = observer(class ConferenceList extends React.Component{
         )
 
     }
-});
+}
 
 export default ConferenceList
