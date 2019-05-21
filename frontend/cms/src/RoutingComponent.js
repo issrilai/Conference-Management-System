@@ -34,7 +34,7 @@ class RoutingBasicComponent extends Component {
 
         return (
             <HashRouter>
-                {this.props.logged ? <HeaderComponent btns={btns}/> : ""}
+                {this.props.logged? <HeaderComponent logged={this.props.logged} actionLogout={this.props.actionLogout} btns={btns}/> : "" }
                 <Switch>
                     <Route exact path='/addConference' component={AddConference}/>
                     {this.props.logged ?
@@ -45,7 +45,6 @@ class RoutingBasicComponent extends Component {
                                                  render={() => <Authentification action={this.props.action}/>}/> :
                         <Redirect to='/'/>}
                     {!this.props.logged ? <Route exact path='/sign-up' component={Authentification}/> : ''}
-
                 </Switch>
 
             </HashRouter>
