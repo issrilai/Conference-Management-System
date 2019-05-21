@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 
 class SignUpPcComponent extends Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     checkChair = function() {
         if (document.getElementById('chair').checked === true) {
             document.getElementById('reviewer').checked = false;
@@ -15,7 +19,8 @@ class SignUpPcComponent extends Component {
     };
 
     render(){
-        const {handleSubmit, handleChange, website, affiliation, chair, reviewer} = this.props;
+
+        const {handleChangeActorType, handleSubmit, handleChange, website, affiliation, chair, reviewer} = this.props;
         return (
             <React.Fragment>
                 <div className="FormContent">
@@ -35,11 +40,11 @@ class SignUpPcComponent extends Component {
                         <div className="PCRow">
                             <label className="PCFirst_Field FormField_Label"> Chair
                                 <input required type="checkbox" id="chair" className="FormField_Input" name="chair"
-                                       value={chair} onChange={handleChange} onClick={this.checkChair}/>
+                                       value={chair} onChange={handleChangeActorType} onClick={this.checkChair}/>
                             </label>
                             <label className="PCSecond_Field FormField_Label"> Reviewer
                                 <input required type="checkbox" id="reviewer" className="FormField_Input" name="reviewer"
-                                       value={reviewer} onChange={handleChange} onClick={this.checkReviewer}/>
+                                       value={reviewer} onChange={handleChangeActorType} onClick={this.checkReviewer}/>
                             </label>
                         </div>
 
