@@ -1,23 +1,53 @@
 import React, {Component} from 'react';
 
 class SignUpPcComponent extends Component {
-    render() {
-        const {handleSubmit, handleChange, website, affiliation} = this.props;
+
+    constructor(props) {
+        super(props);
+    }
+
+    checkChair = function() {
+        if (document.getElementById('chair').checked === true) {
+            document.getElementById('reviewer').checked = false;
+        }
+    };
+
+    checkReviewer = function() {
+        if (document.getElementById('reviewer').checked === true) {
+            document.getElementById('chair').checked = false;
+        }
+    };
+
+    render(){
+
+        const {handleChangeActorType, handleSubmit, handleChange, website, affiliation, chair, reviewer} = this.props;
         return (
             <React.Fragment>
                 <div className="FormContent">
                     <form onSubmit={handleSubmit} className="FormFields">
-                        <div className="FormField">
+                        <div className="PCFormField">
                             <label className="FormField_Label" htmlFor="username">Affiliation</label>
-                            <input id="affiliation" className="FormField_Input" name="affiliation" value={affiliation}
+                            <input required id="affiliation" className="FormField_Input" name="affiliation" value={affiliation}
                                    onChange={handleChange}/>
                         </div>
 
-                        <div className="FormField">
+                        <div className="PCFormField">
                             <label className="FormField_Label" htmlFor="password">Website</label>
-                            <input type="website" id="website" className="FormField_Input" name="website"
+                            <input required type="website" id="website" className="FormField_Input" name="website"
                                    value={website} onChange={handleChange}/>
                         </div>
+
+                        <div className="PCRow">
+                            <label className="PCFirst_Field FormField_Label"> Chair
+                                <input required type="checkbox" id="chair" className="FormField_Input" name="chair"
+                                       value={chair} onChange={handleChangeActorType} onClick={this.checkChair}/>
+                            </label>
+                            <label className="PCSecond_Field FormField_Label"> Reviewer
+                                <input required type="checkbox" id="reviewer" className="FormField_Input" name="reviewer"
+                                       value={reviewer} onChange={handleChangeActorType} onClick={this.checkReviewer}/>
+                            </label>
+                        </div>
+
                     </form>
                 </div>
                 <div className="NextButton">

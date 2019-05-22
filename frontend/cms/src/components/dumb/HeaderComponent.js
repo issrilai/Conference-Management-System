@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import {Link} from "react-router-dom";
 
 const theme = createMuiTheme({
     palette: {
@@ -22,37 +23,35 @@ const theme = createMuiTheme({
     },
 });
 
-class HeaderComponent extends React.Component {
+class HeaderComponent extends React.Component
+{
     constructor(props) {
         super(props);
     }
 
+
     render() {
-        function handleButtonClicked(e) {
-            if (e === "SIGN OUT") {
-            //    do sign out
-            }
-            if (e === "ADD CONFERENCE") {
-            //    ADD CONFERENCE
-            }
+        const {actionLogout} = this.props;
+
+        function handleButtonClicked() {
+            actionLogout();
         }
+
         const {btns} = this.props;
         return (
             <MuiThemeProvider theme={theme}>
                 <div className="root">
                     <AppBar position="static" color="primary">
                         <Toolbar>
-                            {/* <IconButton className="menuButton" color="inherit" aria-label="Menu">
-                <MenuIcon />
-            </IconButton> */}
                             <Typography variant="h6" color="inherit" className="grow">
                                 Logo
                             </Typography>
                             {
-                                btns.map(function(name) {
-                                    return <Button color="inherit" className="menuButton" onClick={ () => handleButtonClicked(name)}>{name}</Button>
+                                btns.map(function({name, path}) {
+                                    return <Button color="inherit" className="menuButton"><Link to={path}>{name}</Link></Button>
                                 })
                             }
+                            <Button color="inherit" className="menuButton" onClick={handleButtonClicked}>LOG OUT</Button>
 
                         </Toolbar>
                     </AppBar>

@@ -20,7 +20,7 @@ from app.views import *
 from app.views.add_conference_view import AddConfereceView
 from app.views.proposal_view import ProposalView
 from app.views.section_view import SectionView
-from app.views.user_auth import auth
+from app.views.user_auth import auth, logout
 
 router = routers.DefaultRouter()
 router.register(r'users', HelloView, 'user')
@@ -34,12 +34,16 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('auth/', auth, name='auth'),
+    path('logout/', logout, name='logout'),
     # path('logout/', logout, name='logout'),
     # path('test/', , name='test'),
-    path('register-author/', RegisterAuthorView.registerAuthor, name='register-author'),
-    path('register-listener/', RegisterAuthorView.registerListener, name='register-listener'),
-    path('register-pcmember/', RegisterAuthorView.registerPCMember, name='register-pcmember'),
+    path('register-author/', Register.registerAuthor, name='register-author'),
+    path('register-listener/', Register.registerListener, name='register-listener'),
+    path('register-reviewer/', Register.registerReviewer, name='register-reviewer'),
+    path('register-chair/', Register.registerChair, name='register-chair'),
+    path('register-pcmember/', Register.registerPCMember, name='register-pcmember'),
     path('add-conference/', AddConfereceView.addConference, name='add-conference')
+
 
     # path('auth/', LoginView)
 ]

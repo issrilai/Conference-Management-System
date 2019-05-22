@@ -10,7 +10,7 @@ class SignUpAuthorComponent extends Component {
                     <form onSubmit={handleSubmit} className="FormFields">
                         <div className="FormField_Author">
                             <label className="FormField_Label" htmlFor="username">Affiliation</label>
-                            <input id="affiliation" className="FormField_Input" name="affiliation" value={affiliation}
+                            <input required id="affiliation" className="FormField_Input" name="affiliation" value={affiliation}
                                    onChange={handleChange}/>
                         </div>
                     </form>

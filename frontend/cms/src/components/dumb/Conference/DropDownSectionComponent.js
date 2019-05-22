@@ -10,6 +10,8 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 import ProposallList from './ProposalList';
+import SimpleProposallList from './SimpleProposalList';
+import Cookies from "universal-cookie";
 
 class SectionToggle extends React.Component{
     constructor(props) {
@@ -28,6 +30,19 @@ class SectionToggle extends React.Component{
         });
       };
 
+      show(){
+        const cookies = new Cookies();
+        if(cookies.get('role') === "reviewer")
+        {
+          return <ProposallList store={storeProposals} id={this.state.id}/>
+        }
+        else
+        if(cookies.get('role') === "chair")
+        {
+          return <SimpleProposallList store={storeProposals} id={this.state.id}/>
+        }
+      }
+
       render() {
         const { expanded } = this.state;
 
@@ -37,7 +52,7 @@ class SectionToggle extends React.Component{
             <Typography className="secondaryHeading"></Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <ProposallList store={storeProposals} id={this.state.id}/>
+            {this.show()}
           </ExpansionPanelDetails>
         </ExpansionPanel>
       }

@@ -66,12 +66,12 @@ class SignInComponent extends Component {
                 <form onSubmit={this.handleSubmit} className="FormFields">
                     <div className="FormField">
                         <label className="FormField_Label" htmlFor="username">Username</label>
-                        <input id="username" className="FormField_Input"  name="username" value={username} onChange={this.handleChange} />
+                        <input required id="username" className="FormField_Input"  name="username" value={username} onChange={this.handleChange} />
                     </div>
 
                     <div className="FormField">
                         <label className="FormField_Label" htmlFor="password">Password</label>
-                        <input type="password" id="username" className="FormField_Input"  name="password" value={password} onChange={this.handleChange} />
+                        <input required type="password" id="username" className="FormField_Input"  name="password" value={password} onChange={this.handleChange} />
                     </div>
                     <div className="NextButton">
                         <input type="submit" className="FormField_Link" value="Next"/>
