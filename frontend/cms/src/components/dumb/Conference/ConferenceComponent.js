@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../../styles/Conference.css'
 import SessionList from './SessionsList'
+import SessionListForAuth from './SessionsListForAuth'
 import storeSections from '../../smart/getSectionsComponent'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -34,6 +35,11 @@ class ConferenceToggle extends React.Component{
         if(cookies.get('role') === "listener")
         {
           return <SessionList store={storeSections} id={this.state.id}/>
+        }
+        else
+        if(cookies.get('role') === "author")
+        {
+          return <SessionListForAuth store={storeSections} id={this.state.id}/>
         }
         else
         if(cookies.get('role') === "reviewer" || cookies.get('role') === "chair")
