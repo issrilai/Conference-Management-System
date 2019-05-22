@@ -8,6 +8,7 @@
     "@types/react": "^16.8.17",
     "history": "latest",
     "mobx": "^5.9.4",
+    "mobx-devtools-mst": "^0.9.21",
     "mobx-react": "^5.4.3",
     "react": "^16.8.6",
     "react-cookie": "^4.0.0",

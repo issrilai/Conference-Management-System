@@ -4,7 +4,6 @@ import '../../../styles/Conference.css'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import WishToReviewList from './WishToReviewList';
 
 const SimpleProposallList = observer(class SimplePropList extends React.Component{
 
@@ -28,14 +27,14 @@ const SimpleProposallList = observer(class SimplePropList extends React.Componen
         const {proposals}= this.props.store;
         return <List className= "listItems">
             {proposals.map(value => (
-              value.sid_id == this.state.id)
+              value.sid_id === this.state.id)
               ?<ListItem key={value} role={undefined}>
                 <ListItemText primary={`${value.name}: ${value.abstract}`} />
               </ListItem>
-              :<div></div>
+              :""
             )}
           </List>
     }
-})
+});
 
 export default SimpleProposallList

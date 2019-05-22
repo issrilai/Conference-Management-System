@@ -1,9 +1,6 @@
 import React from 'react';
 import '../../../styles/Conference.css'
-import SessionList from './SessionsList'
 import storeProposals from '../../smart/getProposalsComponent'
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -49,7 +46,7 @@ class SectionToggle extends React.Component{
         return <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             <Typography className = "heading">{this.state.name}</Typography>
-            <Typography className="secondaryHeading"></Typography>
+            <Typography className="secondaryHeading"/>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             {this.show()}

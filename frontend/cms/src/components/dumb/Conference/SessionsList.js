@@ -3,7 +3,6 @@ import { observer } from "mobx-react"
 import '../../../styles/Conference.css'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
 
@@ -52,7 +51,7 @@ const SessionList = observer(class ConferenceList extends React.Component{
         return (
           <List className= "listItems">
             {sections.map(value => (
-              value.confid_id == this.state.id)
+              value.confid_id === this.state.id)
               ?<ListItem key={value} role={undefined} dense button onClick={this.handleToggle(value)}>
                 <Checkbox
                   checked={this.state.checked.indexOf(value) !== -1}
@@ -61,7 +60,7 @@ const SessionList = observer(class ConferenceList extends React.Component{
                 />
                 <ListItemText primary={`${value.name}. From ${value.startHour} to ${value.endHour}`} />
               </ListItem>
-              :<div></div>
+              :""
             )}
           </List>
         );

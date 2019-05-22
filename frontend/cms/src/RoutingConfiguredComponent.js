@@ -1,4 +1,4 @@
-import {HashRouter, Route, Switch} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import SignUpComponent from "./components/dumb/Authentication/SignUpComponent";
 import React, {Component} from "react";
 import SignInComponent from "./components/dumb/Authentication/SignInComponent";
@@ -14,13 +14,13 @@ class RoutingConfiguredComponent extends Component
     render()
     {
         return (
-            <HashRouter>
+            <React.Fragment>
                 <Switch>
                     <Route exact path='/' render={() => <SignInComponent action={this.props.action}/>}/>
                     <Route path="/sign-in" render={() => <SignInComponent action={this.props.action}/>}/>
                     <Route path="/sign-up" component={withRouter(SignUpComponent)}/>
                 </Switch>
-            </HashRouter>
+            </React.Fragment>
         );
     }
 }

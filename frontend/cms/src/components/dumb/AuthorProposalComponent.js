@@ -1,12 +1,8 @@
 import React, {Component} from 'react'
 import '../../styles/AuthorProposal.css'
 import '../../Authentication.css'
-import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import NextButtonComponent from "./NextButtonComponent";
-import {Link} from "react-router-dom";
-import Router from "react-router-dom/es/Router";
 import {extendObservable} from "mobx";
 import {observer} from "mobx-react";
 import Cookies from 'universal-cookie';

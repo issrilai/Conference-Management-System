@@ -5,6 +5,7 @@ class storeProposals {
         extendObservable(this, {
             proposals: [],
             loaded: false,
+            //todo change in loadProposals
             loadSections: action(function() {
                 fetch(`http://127.0.0.1:8000/api/proposals/`)
             .then(data => data.json())

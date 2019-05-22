@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {NavLink,} from 'react-router-dom';
 import {observer} from "mobx-react";
 import {extendObservable} from "mobx";
 import SignUpAuthorComponent from "./SignUpAuthorComponent";
