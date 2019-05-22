@@ -30,7 +30,7 @@ const SimpleProposallList = observer(class SimplePropList extends React.Componen
             {proposals.map(value => (
               value.sid_id == this.state.id)
               ?<ListItem key={value} role={undefined}>
-                <ListItemText primary={`${value.name}`} />
+                <ListItemText primary={`${value.name}: ${value.abstract}`} />
               </ListItem>
               :<div></div>
             )}

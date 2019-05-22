@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from app.views import *
+from app.views.add_proposal import add_poposals
 from app.views.add_conference_view import AddConfereceView
 from app.views.proposal_view import ProposalView
 from app.views.section_view import SectionView
@@ -42,7 +43,8 @@ urlpatterns = [
     path('register-reviewer/', Register.registerReviewer, name='register-reviewer'),
     path('register-chair/', Register.registerChair, name='register-chair'),
     path('register-pcmember/', Register.registerPCMember, name='register-pcmember'),
-    path('add-conference/', AddConfereceView.addConference, name='add-conference')
+    path('add-conference/', AddConfereceView.addConference, name='add-conference'),
+    path('submit-proposal/', add_poposals, name='submit-proposal')
 
 
     # path('auth/', LoginView)

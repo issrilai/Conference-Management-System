@@ -9,6 +9,7 @@ import {Link} from "react-router-dom";
 import Router from "react-router-dom/es/Router";
 import {extendObservable} from "mobx";
 import {observer} from "mobx-react";
+import Cookies from 'universal-cookie';
 
 const theme = createMuiTheme({
     palette: {
@@ -23,7 +24,7 @@ const theme = createMuiTheme({
         },
     },
 });
-export default observer (
+const AuthorProposalComponent =  observer (
 class AuthorProposalComponent extends  Component {
 
     constructor(props) {
@@ -38,6 +39,10 @@ class AuthorProposalComponent extends  Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
+        this.state = {
+            id: props.id,
+        }
     }
     handleChange = e => {
         const {name, value} = e.target;
@@ -46,6 +51,8 @@ class AuthorProposalComponent extends  Component {
 
     handleSubmit = e => {
         e.preventDefault();
+
+        const cookies = new Cookies();
 
         console.log('The form was submitted with the following data:');
         console.log(this.props);
@@ -61,6 +68,8 @@ class AuthorProposalComponent extends  Component {
                 keywords: this.keywords,
                 abstract: this.abstract,
                 proposal: this.proposal,
+                sid_id: this.state.id,
+                session_key: cookies.get('session_key'),
             })
 
         }).then(function(response) {
@@ -134,3 +143,4 @@ class AuthorProposalComponent extends  Component {
     }
 })
 
+export default AuthorProposalComponent

@@ -5,33 +5,40 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
-import Checkbox from '@material-ui/core/Checkbox';
+import Typography from '@material-ui/core/Typography';
+import Modal from '@material-ui/core/Modal';
+import Button from '@material-ui/core/Button';
+import AuthorProposalComponent from '../AuthorProposalComponent'
 
-const SessionList = observer(class ConferenceList extends React.Component{
+  
+  function getModalStyle() {
+    const top = -500;
+    const left = -500;
+  
+    return {
+      top: `${top}%`,
+      left: `${left}%`,
+      transform: `translate(-${top}%, -${left}%)`,
+    };
+  }
+
+const SessionListForAuth = observer(class ConferenceList extends React.Component{
 
     constructor(props) {
         super(props);
 
         this.state = {
-            checked: [0],
+            open: false,
             id: props.id,
           };
     }
 
-      handleToggle = value => () => {
-        const { checked } = this.state;
-        const currentIndex = checked.indexOf(value);
-        const newChecked = [...checked];
+    handleOpen = () => {
+        this.setState({ open: true });
+      };
     
-        if (currentIndex === -1) {
-          newChecked.push(value);
-        } else {
-          newChecked.splice(currentIndex, 1);
-        }
-    
-        this.setState({
-          checked: newChecked,
-        });
+      handleClose = () => {
+        this.setState({ open: false });
       };
 
       componentDidMount() {
@@ -53,12 +60,18 @@ const SessionList = observer(class ConferenceList extends React.Component{
           <List className= "listItems">
             {sections.map(value => (
               value.confid_id == this.state.id)
-              ?<ListItem key={value} role={undefined} dense button onClick={this.handleToggle(value)}>
-                <Checkbox
-                  checked={this.state.checked.indexOf(value) !== -1}
-                  tabIndex={-1}
-                  disableRipple
-                />
+              ?<ListItem key={value} role={undefined}>
+                    <Button onClick={this.handleOpen}>Submit a proposal</Button>
+                    <Modal
+                    aria-labelledby="simple-modal-title"
+                    aria-describedby="simple-modal-description"
+                    open={this.state.open}
+                    onClose={this.handleClose}
+                    >
+                    <div style={getModalStyle()} className= "paper">
+                        <AuthorProposalComponent id={value.id}></AuthorProposalComponent>
+                    </div>
+                    </Modal>
                 <ListItemText primary={`${value.name}. From ${value.startHour} to ${value.endHour}`} />
               </ListItem>
               :<div></div>
@@ -69,4 +82,4 @@ const SessionList = observer(class ConferenceList extends React.Component{
 
 });
 
-export default SessionList
+export default SessionListForAuth
