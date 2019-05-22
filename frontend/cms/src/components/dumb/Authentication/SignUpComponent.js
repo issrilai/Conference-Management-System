@@ -62,6 +62,9 @@ export default observer(
             e.stopPropagation();
             console.log('The form was submitted with the following data:');
             console.log(this);
+
+            const history = this.props.history;
+
             if (this.affiliation === "") {
                 //if the new user has no affiliation, he is a listener
                 fetch('http://127.0.0.1:8000/register-listener/', {
@@ -84,6 +87,7 @@ export default observer(
                     .then(function (myJson) {
                         if (myJson === "ok") {
                             console.log("here should be an automatically signup")
+                            history.push('/sign-in');
                         } else {
                             alert("Invalid data! Please try again")
                         }
@@ -111,7 +115,7 @@ export default observer(
                 })
                     .then(function (myJson) {
                         if (myJson === "ok") {
-                            //    here should be an automatically sign in
+                            history.push('/sign-in');
                         } else {
                             console.log("error");
                         }
@@ -144,7 +148,7 @@ export default observer(
                 })
                     .then(function (myJson) {
                         if (myJson === "ok") {
-                            //    here should be an automatically sign in
+                            history.push('/sign-in');
                         } else {
                             console.log("error");
                         }
@@ -174,7 +178,7 @@ export default observer(
                 })
                     .then(function (myJson) {
                         if (myJson === "ok") {
-                            //    here should be an automatically sign in
+                            history.push('/sign-in');
                         } else {
                             console.log("error");
                         }
