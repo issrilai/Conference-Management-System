@@ -69,7 +69,7 @@ const SessionListForAuth = observer(class ConferenceList extends React.Component
                     onClose={this.handleClose}
                     >
                     <div style={getModalStyle()} className= "paper">
-                        <AuthorProposalComponent id={value.id}></AuthorProposalComponent>
+                        <AuthorProposalComponent id={value.id} onSubmit={this.handleClose}/>
                     </div>
                     </Modal>
                 <ListItemText primary={`${value.name}. From ${value.startHour} to ${value.endHour}`} />

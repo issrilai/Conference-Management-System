@@ -52,6 +52,9 @@ class AuthorProposalComponent extends  Component {
     handleSubmit = e => {
         e.preventDefault();
 
+        if (this.props.onSubmit) {
+            this.props.onSubmit()
+        }
         const cookies = new Cookies();
 
         console.log('The form was submitted with the following data:');
