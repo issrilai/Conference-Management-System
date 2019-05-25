@@ -31,7 +31,8 @@ def add_poposals(request):
         return Response("could not find author", 400)
 
     if author is not None:
-        proposal = Proposal.objects.create(name=name, keyWords=keywords, abstract=abstract, pdf=proposal, sid_id=sid_id, aid_id=author.id)
+        proposal = Proposal.objects.create(name=name, keyWords=keywords, abstract=abstract, pdf=proposal, sid_id=sid_id,
+                                           aid_id=author.id)
         return Response("ok", 200)
     else:
         return Response("couldn't add proposal", 400)
