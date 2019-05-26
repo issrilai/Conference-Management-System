@@ -22,6 +22,7 @@ from app.views.add_conference_view import AddConfereceView
 from app.views.proposal_view import ProposalView
 from app.views.section_view import SectionView
 from app.views.user_auth import auth, logout
+from app.views.review_result_view import reviewResult
 
 router = routers.DefaultRouter()
 router.register(r'users', HelloView, 'user')
@@ -44,8 +45,8 @@ urlpatterns = [
     path('register-chair/', Register.registerChair, name='register-chair'),
     path('register-pcmember/', Register.registerPCMember, name='register-pcmember'),
     path('add-conference/', AddConfereceView.addConference, name='add-conference'),
-    path('submit-proposal/', add_poposals, name='submit-proposal')
-
+    path('submit-proposal/', add_poposals, name='submit-proposal'),
+    path('review-result/', reviewResult, name='review-result')
 
     # path('auth/', LoginView)
 ]
