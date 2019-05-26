@@ -19,6 +19,7 @@ from rest_framework import routers
 from app.views import *
 from app.views.add_proposal import add_poposals
 from app.views.add_conference_view import AddConfereceView
+from app.views.committe_member_view import CommitteeMembersView
 from app.views.proposal_view import ProposalView
 from app.views.section_view import SectionView
 from app.views.user_auth import auth, logout
@@ -29,7 +30,7 @@ router.register(r'conferences', ConferenceView)
 router.register(r'sectionsbyconf', SectionByConferenceView, base_name='sectionbyconf')
 router.register(r'sections', SectionView, base_name='section')
 router.register(r'proposals', ProposalView, base_name='proposal')
-
+router.register(r'members', CommitteeMembersView, base_name='members')
 urlpatterns = [
     # url(r'^', include('', namespace='app')),
     path('admin/', admin.site.urls),

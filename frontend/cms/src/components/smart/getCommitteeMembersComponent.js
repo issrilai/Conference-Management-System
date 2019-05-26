@@ -1,18 +1,17 @@
 import {action, extendObservable} from "mobx";
 
-class storeConferences {
+class storeCommitteeMembers {
     constructor() {
         extendObservable(this, {
-            conferences: [],
+            committeeMembers: [],
             loaded: false,
-            loadConferences: action(function () {
-                fetch(`http://127.0.0.1:8000/api/conferences/`)
+            loadMembers: action(function () {
+                fetch(`http://127.0.0.1:8000/api/members/`)
                     .then(data => data.json())
                     .then(response => {
                         console.log(response);
-                        this.conferences = response;
+                        this.committeeMembers = response;
                         this.loaded = true;
-                        //    setez loaded true ca sa stiu ca am facut requestul
                     })
             })
         })
@@ -20,5 +19,5 @@ class storeConferences {
 
 }
 
-const store = new storeConferences();
+const store = new storeCommitteeMembers();
 export default store;
