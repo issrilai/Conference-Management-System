@@ -30,15 +30,12 @@ class AuthorProposalComponent extends  Component {
             name:'',
             keywords:'',
             abstract:'',
-            proposal:''
+            proposal:'',
         });
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
-        this.state = {
-            id: props.id,
-        }
     }
     handleChange = e => {
         const {name, value} = e.target;
@@ -67,7 +64,7 @@ class AuthorProposalComponent extends  Component {
                 keywords: this.keywords,
                 abstract: this.abstract,
                 proposal: this.proposal,
-                sid_id: this.state.id,
+                sid_id: this.props.id,
                 session_key: cookies.get('session_key'),
             })
 
@@ -82,6 +79,7 @@ class AuthorProposalComponent extends  Component {
             keywords: this.keywords,
             abstract: this.abstract,
             proposal: this.proposal,
+            id: this.props.id,
         }));
 
     };
