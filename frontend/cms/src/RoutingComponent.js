@@ -6,6 +6,7 @@ import HeaderComponent from "./components/dumb/HeaderComponent";
 import Cookies from "universal-cookie";
 import AddConference from "./components/dumb/Conference/AddConference";
 import storeConferences from './components/smart/getConferenceComponent';
+import storeCommitteeMembers from './components/smart/getCommitteeMembersComponent';
 import ReviewFormComponent from "./components/dumb/ReviewFormComponent";
 
 
@@ -34,8 +35,8 @@ const RoutingBasicComponent = (props) => {
             <React.Fragment>
                 {props.logged ? <HeaderComponent logged={props.logged} actionLogout={props.actionLogout} btns={btns}/> : '' }
                 <Switch>
+                    {props.logged ? <Route exact path='/addConference' render={() => <AddConference store={storeCommitteeMembers}/>}/> : ''}
                     {props.logged ? <Route exact path='/caca' component={ReviewFormComponent}/> : ''}
-                    {props.logged ? <Route exact path='/addConference' component={AddConference}/> : ''}
                     {props.logged ?
                         <Route exact path='/' render={() => <ConferenceList store={storeConferences}/>}/> : <Route exact path='/' render={() => <Authentification action={props.action}/>}/> }
                     {!props.logged ? <Route exact path='/sign-in'
