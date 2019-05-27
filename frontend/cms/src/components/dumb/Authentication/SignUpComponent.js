@@ -39,7 +39,6 @@ export default observer(
         handleChange = e => {
             const {name, value} = e.target;
             this[name] = value;
-            console.log(name, value);
         };
 
         handleChangeActorType = e => {
@@ -52,7 +51,6 @@ export default observer(
                 this.chair = true;
                 this.reviewer = false;
             }
-            console.log(this.chair, this.reviewer);
         };
 
 
@@ -60,7 +58,6 @@ export default observer(
             e.preventDefault();
             e.stopPropagation();
             console.log('The form was submitted with the following data:');
-            console.log(this);
 
             const history = this.props.history;
 

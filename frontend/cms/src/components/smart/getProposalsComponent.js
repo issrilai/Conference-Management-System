@@ -10,7 +10,6 @@ class storeProposals {
                 fetch(`http://127.0.0.1:8000/api/proposals/`)
             .then(data => data.json())
             .then(response => {
-                console.log(response);
                 this.proposals = response;
                 this.loaded = true;
             })

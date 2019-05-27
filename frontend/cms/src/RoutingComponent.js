@@ -37,7 +37,7 @@ const RoutingBasicComponent = (props) => {
                 <Switch>
                     {props.logged ? <Route exact path='/caca' component={ReviewFormComponent}/> : ''}
                     {props.logged ? <Route exact path='/addConference' component={AddConference}/> : ''}
-                    {props.logged ? <Route exact path='/updateConference' component={UpdateConference}/> : ''}
+                    {props.logged ? <Route exact path='/updateConference/:confID' component={UpdateConference}/> : ''}
                     {props.logged ?
                         <Route exact path='/' render={() => <ConferenceList store={storeConferences}/>}/> : <Route exact path='/' render={() => <Authentification action={props.action}/>}/> }
                     {!props.logged ? <Route exact path='/sign-in'
