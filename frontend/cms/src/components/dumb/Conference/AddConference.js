@@ -71,16 +71,32 @@ export default observer(
             console.log(name, value)
         };
 
-        handleChangeMembers = m => {
-            const {value} = m.target;
-            // this.props.members.push(value);
-            console.log(value);
+        handleChangeMembers = e => {
+            const {checked, value} = e.target;
+
+            if(checked === true)
+            {
+                if(this.members.find((member) => {return value === member;}) === undefined)
+                {
+                    this.members.push(value);
+                }
+            }
+            else
+            {
+                const index_found = this.members.findIndex((member) => {return value === member;});
+                if(index_found !== -1)
+                {
+                    this.members.splice(index_found, 1);
+                }
+            }
+
+            console.log(this.members);
         };
 
         handleSubmit(e) {
             e.preventDefault();
             e.stopPropagation();
-            console.log('The form was submitted with the following data:');
+
             console.log(this);
             const {name, startDate, endDate, abstractDeadline, submitDeadline, bidDeadline, reviewDeadline, members} = this;
             fetch('http://127.0.0.1:8000/add-conference/', {
@@ -97,7 +113,7 @@ export default observer(
                     submitDeadline: submitDeadline,
                     bidDeadline: bidDeadline,
                     reviewDeadline: reviewDeadline,
-                    programCommittee: members
+                    reviewers: members
                 })
 
             }).then(function (response) {
@@ -105,11 +121,8 @@ export default observer(
             })
                 .then(function (myJson) {
                     console.log(JSON.stringify(myJson));
+                    this.history.push('/');
                 });
-            console.log(JSON.stringify({
-                name: name,
-                startDate: startDate,
-            }));
         }
 
         render() {
@@ -243,10 +256,11 @@ export default observer(
                                     </ExpansionPanelSummary>
                                     <List className="listItems">
                                         {committeeMembers.map(member => (
-                                            <ListItem key={member.uid} role={undefined} dense button>
+                                            <ListItem key={member.uid.id} role={undefined} dense button>
 
                                                 <ListItemIcon>
                                                     <Checkbox
+                                                        value={member.uid.id}
                                                         onChange={this.handleChangeMembers}
                                                         edge="start"
                                                     />
