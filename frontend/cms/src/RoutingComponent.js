@@ -34,7 +34,6 @@ const RoutingBasicComponent = (props) => {
             <React.Fragment>
                 {props.logged ? <HeaderComponent logged={props.logged} actionLogout={props.actionLogout} btns={btns}/> : '' }
                 <Switch>
-                    <Route exact path='/test' render={() => <AddConference store={storeCommitteeMembers} />}/>
                     {props.logged ? <Route exact path='/addConference' render={() => <AddConference store={storeCommitteeMembers}/>}/> : ''}
                     {props.logged ?
                         <Route exact path='/' render={() => <ConferenceList store={storeConferences}/>}/> : <Route exact path='/' render={() => <Authentification action={props.action}/>}/> }
