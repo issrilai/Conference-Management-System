@@ -1,18 +1,12 @@
 import React from 'react';
 import { observer } from "mobx-react"
 import '../../../styles/WishToReview.css'
-import PropTypes from 'prop-types';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import '../../../styles/WishToReview.css'
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
 import {extendObservable} from "mobx";
 import Cookies from 'universal-cookie';
 
@@ -64,14 +58,6 @@ const WishToReviewList = observer(class RadioButtonsGroup extends React.Componen
             alert(data);
           })
       })
-
-      // .then(function(myJson) {
-      //   console.log(JSON.stringify(myJson));
-      // });
-      // console.log(JSON.stringify({
-      //   value: this.tate.value,
-      //   reviewer: this.reviewer,
-      // }));
     };
   
     render() {

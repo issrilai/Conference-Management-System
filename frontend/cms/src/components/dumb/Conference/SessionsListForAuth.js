@@ -27,7 +27,8 @@ const SessionListForAuth = observer(class ConferenceList extends React.Component
 
         this.state = {
             open: false,
-            id: props.id,
+            confid: props.id,
+            sid: 0,
           };
     }
 
@@ -50,7 +51,7 @@ const SessionListForAuth = observer(class ConferenceList extends React.Component
         return (
           <List className= "listItems">
             {sections.map(value => (
-              value.confid_id === this.state.id)
+              value.confid_id === this.state.confid)
               ?<ListItem key={value} role={undefined}>
                     <Button onClick={this.handleOpen}>Submit a proposal</Button>
                     <Modal
