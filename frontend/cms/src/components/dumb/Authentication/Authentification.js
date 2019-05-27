@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import '../../../Authentication.css';
-import {BrowserRouter, NavLink} from "react-router-dom";
-import SignUpPcComponent from "./SignUpPcComponent";
-import SignUpAuthorComponent from "./SignUpAuthorComponent";
+import {NavLink} from "react-router-dom";
 import RoutingConfiguredComponent from "../../../RoutingConfiguredComponent";
-import SignInComponent from './SignInComponent'
 
 
 class Authentification extends Component {

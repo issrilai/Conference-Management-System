@@ -5,7 +5,6 @@ import "../../../styles/AddConference.css"
 import FormControl from '@material-ui/core/FormControl';
 import {observer} from "mobx-react";
 import {extendObservable} from "mobx";
-import Typography from "@material-ui/core/Typography";
 
 
 const theme = createMuiTheme({

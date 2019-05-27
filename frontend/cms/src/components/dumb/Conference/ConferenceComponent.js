@@ -1,9 +1,8 @@
 import React from 'react';
 import '../../../styles/Conference.css'
 import SessionList from './SessionsList'
+import SessionListForAuth from './SessionsListForAuth'
 import storeSections from '../../smart/getSectionsComponent'
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -11,8 +10,9 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 import SectionListDropDown from './SectionListDropDown';
 import Cookies from "universal-cookie";
+import {observer} from "mobx-react";
 
-class ConferenceToggle extends React.Component{
+const ConfToggle = observer ( class ConferenceToggle extends React.Component{
     constructor(props) {
         super(props);
       
@@ -36,9 +36,14 @@ class ConferenceToggle extends React.Component{
           return <SessionList store={storeSections} id={this.state.id}/>
         }
         else
+        if(cookies.get('role') === "author")
+        {
+          return <SessionListForAuth store={storeSections} id={this.state.id}/>
+        }
+        else
         if(cookies.get('role') === "reviewer" || cookies.get('role') === "chair")
         {
-          return <SectionListDropDown store={storeSections} id={this.state.id}></SectionListDropDown>
+          return <SectionListDropDown store={storeSections} id={this.state.id}/>
         }
       }
 
@@ -55,6 +60,6 @@ class ConferenceToggle extends React.Component{
           </ExpansionPanelDetails>
         </ExpansionPanel>
       }
-}
+});
 
-export default ConferenceToggle
+export default ConfToggle

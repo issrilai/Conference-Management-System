@@ -8,7 +8,7 @@ class DefaultForm extends React.Component {
 
     check = function() {
         var buttons = document.getElementsByClassName("submit");
-        var i;
+        let i;
         for (i = 0; i < buttons.length; i++) {
             buttons[i].disabled = document.getElementById('confirmpass').value !== document.getElementById('password').value;
         }
