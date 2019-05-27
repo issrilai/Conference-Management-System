@@ -8,12 +8,19 @@ import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import AuthorProposalComponent from '../AuthorProposalComponent'
 
+
   
   function getModalStyle() {
     const top = -500;
     const left = -500;
   
     return {
+        width: 750,
+        height:460,
+        marginLeft:380,
+        marginTop:80,
+
+
       top: `${top}%`,
       left: `${left}%`,
       transform: `translate(-${top}%, -${left}%)`,
@@ -64,7 +71,7 @@ const SessionListForAuth = observer(class ConferenceList extends React.Component
                         <AuthorProposalComponent id={value.id} onSubmit={this.handleClose}/>
                     </div>
                     </Modal>
-                <ListItemText primary={`${value.name}. From ${value.startHour} to ${value.endHour}`} />
+                <ListItemText primary={`${value.name} -  From ${value.startHour} to ${value.endHour}`} />
               </ListItem>
               :""
             )}

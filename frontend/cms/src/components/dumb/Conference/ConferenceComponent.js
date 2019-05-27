@@ -1,7 +1,9 @@
 import React from 'react';
 import '../../../styles/Conference.css'
+import '../../../Authentication.css'
 import SessionList from './SessionsList'
 import SessionListForAuth from './SessionsListForAuth'
+import UpdateConference from "./UpdateConference";
 import storeSections from '../../smart/getSectionsComponent'
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -11,6 +13,8 @@ import Typography from '@material-ui/core/Typography';
 import SectionListDropDown from './SectionListDropDown';
 import Cookies from "universal-cookie";
 import {observer} from "mobx-react";
+import {Link, Switch, Route} from "react-router-dom";
+import {Router} from "react-router";
 
 const ConfToggle = observer ( class ConferenceToggle extends React.Component{
     constructor(props) {
@@ -47,18 +51,32 @@ const ConfToggle = observer ( class ConferenceToggle extends React.Component{
         }
       }
 
+      showButton(){
+        const cookies = new Cookies();
+        if(cookies.get('role') === "chair")
+        {
+          return (
+              <Switch>
+              <Link to="/updateConference" name="Update conference" style={{fontWeight:900, color:'#725AC1'}}>UPDATE CONFERENCE</Link>
+              <Route path="/updateConference" render={(props) => <UpdateConference {...props} />} />
+              </Switch>)
+        }
+      }
+
       render() {
         const { expanded } = this.state;
 
-        return <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
-          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography className = "heading">{this.state.name}</Typography>
-            <Typography className="secondaryHeading">Details</Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            {this.show()}
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
+        return(
+              <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
+                  <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                  <Typography className = "heading">{this.state.name}</Typography>
+                  {this.showButton()}
+                  </ExpansionPanelSummary>
+                  <ExpansionPanelDetails>
+                  {this.show()}
+                 </ExpansionPanelDetails>
+              </ExpansionPanel>
+        )
       }
 });
 

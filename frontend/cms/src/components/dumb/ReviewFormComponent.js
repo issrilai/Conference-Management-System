@@ -79,9 +79,9 @@ class ReviewFormComponent extends React.Component {
         return (
             <React.Fragment>
                 <MuiThemeProvider theme={theme}>
-                    <h1>Review Paper</h1>
+                    <h2>Review Paper</h2>
                     <FormControl component="fieldset">
-                        <RadioGroup aria-label="position" name="qualifier" onChange={this.handleChange} row>
+                        <RadioGroup aria-label="position" name="qualifier" style={{marginTop:40}} onChange={this.handleChange} row>
                             <FormControlLabel
                                 value="strong_accept"
                                 control={<Radio color="primary"/>}
@@ -129,12 +129,13 @@ class ReviewFormComponent extends React.Component {
                             label="Suggestions"
                             multiline={true}
                             rows={2}
-                            rowsMax={4}
+                            rowsMax={10}
                             onChange={this.handleChange}
                             name="suggestions"
+                            style={{marginTop:40}}
 
                         />
-                        <button className="ConferenceButton" onClick={this.handleSubmit}>Submit</button>
+                        <button className="ConferenceButton" style={{width:100, marginTop:70}} onClick={this.handleSubmit}>Submit</button>
                     </FormControl>
                 </MuiThemeProvider>
             </React.Fragment>

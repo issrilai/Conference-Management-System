@@ -5,6 +5,7 @@ import ConferenceList from "./components/dumb/Conference/ConferenceList";
 import HeaderComponent from "./components/dumb/HeaderComponent";
 import Cookies from "universal-cookie";
 import AddConference from "./components/dumb/Conference/AddConference";
+import UpdateConference from "./components/dumb/Conference/UpdateConference";
 import storeConferences from './components/smart/getConferenceComponent';
 import ReviewFormComponent from "./components/dumb/ReviewFormComponent";
 
@@ -36,6 +37,7 @@ const RoutingBasicComponent = (props) => {
                 <Switch>
                     {props.logged ? <Route exact path='/caca' component={ReviewFormComponent}/> : ''}
                     {props.logged ? <Route exact path='/addConference' component={AddConference}/> : ''}
+                    {props.logged ? <Route exact path='/updateConference' component={UpdateConference}/> : ''}
                     {props.logged ?
                         <Route exact path='/' render={() => <ConferenceList store={storeConferences}/>}/> : <Route exact path='/' render={() => <Authentification action={props.action}/>}/> }
                     {!props.logged ? <Route exact path='/sign-in'
