@@ -47,7 +47,7 @@ urlpatterns = [
     path('register-pcmember/', Register.registerPCMember, name='register-pcmember'),
     path('add-conference/', AddConfereceView.addConference, name='add-conference'),
     path('submit-proposal/', add_poposals, name='submit-proposal'),
-    path('review-result/', reviewResult, name='review-result')
+    path('review-result/', reviewResult, name='review-result'),
     path('add-conference/', AddConfereceView.addConference, name='add-conference'),
     path('wishtoreview/', WishToReview.addWishToReview, name='wishtoreview')
 
