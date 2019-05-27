@@ -1,13 +1,7 @@
 import React from 'react';
-import {observer} from "mobx-react"
-import uuidv1 from "uuid/v1";
+import { observer } from "mobx-react"
 import '../../../styles/Conference.css'
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Modal from '@material-ui/core/Modal';
-import Button from '@material-ui/core/Button';
-import AuthorProposalComponent from '../AuthorProposalComponent'
 import SessionListItem from "./SessionListItem";
 
 
@@ -16,9 +10,15 @@ function getModalStyle() {
     const left = -500;
 
     return {
-        top: `${top}%`,
-        left: `${left}%`,
-        transform: `translate(-${top}%, -${left}%)`,
+        width: 750,
+        height:460,
+        marginLeft:380,
+        marginTop:80,
+
+
+      top: `${top}%`,
+      left: `${left}%`,
+      transform: `translate(-${top}%, -${left}%)`,
     };
 }
 

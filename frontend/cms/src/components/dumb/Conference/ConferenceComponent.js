@@ -1,7 +1,9 @@
 import React from 'react';
 import '../../../styles/Conference.css'
+import '../../../Authentication.css'
 import SessionList from './SessionsList'
 import SessionListForAuth from './SessionsListForAuth'
+import UpdateConference from "./UpdateConference";
 import storeSections from '../../smart/getSectionsComponent'
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -91,6 +93,18 @@ const ConfToggle = observer ( class ConferenceToggle extends React.Component{
         }
       }
 
+      showButton(){
+        const cookies = new Cookies();
+        if(cookies.get('role') === "chair")
+        {
+          return (
+              <Switch>
+              <Link to="/updateConference" name="Update conference" style={{fontWeight:900, color:'#725AC1'}}>UPDATE CONFERENCE</Link>
+              <Route path="/updateConference" render={(props) => <UpdateConference {...props} />} />
+              </Switch>)
+        }
+      }
+
       render() {
         const { expanded } = this.state;
 
@@ -99,11 +113,23 @@ const ConfToggle = observer ( class ConferenceToggle extends React.Component{
             <Typography className = "heading">{this.state.name}</Typography>
             <Typography className="secondaryHeading">{this.state.dateStart} | {this.state.dateStop}</Typography>
             <Typography className="secondaryHeading">{this.addSectionButton()}</Typography>
+            <Typography className="secondaryHeading">{this.addSectionButton()}</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             {this.show()}
           </ExpansionPanelDetails>
         </ExpansionPanel>
+        return(
+              <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
+                  <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                  <Typography className = "heading">{this.state.name}</Typography>
+                  {this.showButton()}
+                  </ExpansionPanelSummary>
+                  <ExpansionPanelDetails>
+                  {this.show()}
+                 </ExpansionPanelDetails>
+              </ExpansionPanel>
+        )
       }
 });
 
