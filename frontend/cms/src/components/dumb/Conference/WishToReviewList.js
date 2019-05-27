@@ -6,14 +6,65 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import {extendObservable} from "mobx";
+import Cookies from 'universal-cookie';
 
 const WishToReviewList = observer(class RadioButtonsGroup extends React.Component {
-    state = {
-      value: 'no',
-    };
+    constructor(props) {
+      super(props);
+
+      this.state = {
+        value: 'no',
+      };
+
+      extendObservable(this, {
+        proposal: props.id,
+        reviewer: null,
+      });
+
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+    }
   
     handleChange = event => {
       this.setState({ value: event.target.value });
+      console.log(this.state.value);
+    };
+
+    handleSubmit = e => {
+      e.preventDefault();
+
+      const cookies = new Cookies();
+
+      fetch('http://127.0.0.1:8000/wishtoreview/', {
+          method: 'POST',
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: JSON.stringify({
+                  value: this.state.value,
+                  proposal: this.proposal,
+                  session_key: cookies.get('session_key'),
+              })
+      })
+
+      .then(function(response) {
+        if(response.status === 200)
+          alert("ok");
+        else 
+          response.text().then(function(data){
+            alert(data);
+          })
+      })
+
+      // .then(function(myJson) {
+      //   console.log(JSON.stringify(myJson));
+      // });
+      // console.log(JSON.stringify({
+      //   value: this.tate.value,
+      //   reviewer: this.reviewer,
+      // }));
     };
   
     render() {
@@ -36,6 +87,9 @@ const WishToReviewList = observer(class RadioButtonsGroup extends React.Componen
               <FormControlLabel className="label" value="no" control={<Radio />} label="No" />
             </RadioGroup>
           </FormControl>
+          <div className="NextButton">
+              <button type="submit" className="FormField_Link" onClick={this.handleSubmit}>Submit</button>
+          </div>
         </div>
       );
     }

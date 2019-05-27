@@ -30,8 +30,8 @@ const ProposallList = observer(class PropList extends React.Component{
             {proposals.map(value => (
               value.sid_id == this.state.id)
               ?<ListItem key={value} role={undefined}>
-                <ListItemText primary={`${value.name}`} />
-                <WishToReviewList></WishToReviewList>
+                <ListItemText primary={`${value.name}:`} secondary={`${value.abstract}`} style={{width: 50 + '%'}}/>
+                <WishToReviewList id={value.id}></WishToReviewList>
               </ListItem>
               :<div></div>
             )}
