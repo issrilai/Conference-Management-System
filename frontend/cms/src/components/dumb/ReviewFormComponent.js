@@ -42,9 +42,7 @@ class ReviewFormComponent extends React.Component {
         e.preventDefault();
         e.stopPropagation();
         console.log('The form was submitted with the following data:');
-        console.log(this);
         const {suggestions, qualifier, reviewer, paper} = this;
-        console.log(suggestions, qualifier);
         fetch('http://127.0.0.1:8000/review-result/', {
             method: 'POST',
             headers: {
@@ -62,7 +60,6 @@ class ReviewFormComponent extends React.Component {
             return response.json();
         })
             .then(function(myJson) {
-                console.log(JSON.stringify(myJson));
             });
         console.log(JSON.stringify({
             suggestions, qualifier
