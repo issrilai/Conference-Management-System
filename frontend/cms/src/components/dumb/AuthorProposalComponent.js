@@ -86,6 +86,7 @@ class AuthorProposalComponent extends  Component {
 
     render() {
         const {name, keywords, abstract, proposal} = this;
+        console.log(this.props);
         return(
             <MuiThemeProvider theme={theme}>
                 <form onSubmit={this.handleSubmit} className="root">

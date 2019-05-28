@@ -1,5 +1,6 @@
 import React from 'react';
 import ConferenceToggle from './ConferenceComponent';
+import uuidv1 from "uuid/v1";
 
 import {observer} from "mobx-react";
 
@@ -18,7 +19,7 @@ class ConferenceList extends React.Component {
         const {conferences} = this.props.store;
 
         const listOfConferences = conferences.map(conference => (
-            <ConferenceToggle name={conference.name} id={conference.id}/>
+            <ConferenceToggle key={uuidv1()} name={conference.name} id={conference.id}/>
         ));
         console.log(conferences.length);
         return (

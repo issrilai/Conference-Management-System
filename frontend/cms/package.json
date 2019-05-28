@@ -16,7 +16,8 @@
     "react-router": "latest",
     "react-router-dom": "^5.0.0",
     "react-scripts": "^3.0.1",
-    "universal-cookie": "^4.0.0"
+    "universal-cookie": "^4.0.0",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
