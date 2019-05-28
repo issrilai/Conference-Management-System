@@ -16,6 +16,7 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpandMoreIcon from "@material-ui/core/SvgIcon/SvgIcon";
 import Typography from "@material-ui/core/Typography";
+import {withRouter} from 'react-router';
 
 const theme = createMuiTheme({
     palette: {
@@ -31,13 +32,14 @@ const theme = createMuiTheme({
     },
 });
 
-export default observer(
+export default withRouter(observer(
     class AddConference extends React.Component {
 
         constructor(props) {
             super(props);
             this.state = {
                 expanded: null,
+
             };
             extendObservable(this, {
                 name: '',
@@ -74,18 +76,17 @@ export default observer(
         handleChangeMembers = e => {
             const {checked, value} = e.target;
 
-            if(checked === true)
-            {
-                if(this.members.find((member) => {return value === member;}) === undefined)
-                {
+            if (checked === true) {
+                if (this.members.find((member) => {
+                    return value === member;
+                }) === undefined) {
                     this.members.push(value);
                 }
-            }
-            else
-            {
-                const index_found = this.members.findIndex((member) => {return value === member;});
-                if(index_found !== -1)
-                {
+            } else {
+                const index_found = this.members.findIndex((member) => {
+                    return value === member;
+                });
+                if (index_found !== -1) {
                     this.members.splice(index_found, 1);
                 }
             }
@@ -97,8 +98,9 @@ export default observer(
             e.preventDefault();
             e.stopPropagation();
 
-            console.log(this);
+
             const {name, startDate, endDate, abstractDeadline, submitDeadline, bidDeadline, reviewDeadline, members} = this;
+            const {history} = this.props;
             fetch('http://127.0.0.1:8000/add-conference/', {
                 method: 'POST',
                 headers: {
@@ -121,7 +123,7 @@ export default observer(
             })
                 .then(function (myJson) {
                     console.log(JSON.stringify(myJson));
-                    this.history.push('/');
+                    history.push('/');
                 });
         }
 
@@ -283,4 +285,4 @@ export default observer(
 
         }
     }
-)
+));
