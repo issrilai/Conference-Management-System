@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework.utils import json
 from rest_framework.response import Response
 
-from app.models import WIshToReview, ProgramCommitteeMember, Reviewer
+from app.models import WishToReview, ProgramCommitteeMember, Reviewer
 
 
 class WishToReview:
@@ -41,7 +41,7 @@ class WishToReview:
 
         if rid is not None:
             try:
-                wishtoreview = WIshToReview.objects.get(prid_id=proposal, rid_id=rid)
+                wishtoreview = WishToReview.objects.get(prid_id=proposal, rid_id=rid)
             except ObjectDoesNotExist as e:
                 wishtoreview = None
 
@@ -49,8 +49,8 @@ class WishToReview:
                 wishtoreview.answer = value
                 wishtoreview.save()
             else:
-                wishtoreview_instance = WIshToReview.objects.create(answer=value,
-                                                    prid_id=proposal, rid_id=rid)
+                wishtoreview_instance = WishToReview.objects.create(answer=value,
+                                                                    prid_id=proposal, rid_id=rid)
                 wishtoreview_instance.save()
             return Response("ok", 200)
         else:
