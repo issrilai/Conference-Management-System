@@ -34,15 +34,12 @@ router.register(r'sectionsbyconf', SectionByConferenceView, base_name='sectionby
 router.register(r'sections', SectionView, base_name='section')
 router.register(r'proposals', ProposalView, base_name='proposal')
 router.register(r'members', CommitteeMembersView, base_name='members')
-router.register(r'papers_reviwers_to_assign', PapersReviwersToAssign, base_name='papers_reviwers_to_assign')
+router.register(r'papers_reviwers_to_assign/(?P<session>\S+)', PapersReviwersToAssign, base_name='papers_reviwers_to_assign')
 urlpatterns = [
-    # url(r'^', include('', namespace='app')),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('auth/', auth, name='auth'),
     path('logout/', logout, name='logout'),
-    # path('logout/', logout, name='logout'),
-    # path('test/', , name='test'),
     path('register-author/', Register.registerAuthor, name='register-author'),
     path('register-listener/', Register.registerListener, name='register-listener'),
     path('register-reviewer/', Register.registerReviewer, name='register-reviewer'),

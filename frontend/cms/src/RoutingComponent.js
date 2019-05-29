@@ -7,7 +7,10 @@ import Cookies from "universal-cookie";
 import AddConference from "./components/dumb/Conference/AddConference";
 import storeConferences from './components/smart/getConferenceComponent';
 import storeCommitteeMembers from './components/smart/getCommitteeMembersComponent';
+import storeAssignPaperData from './components/smart/getAssignPaperDataComponent'
 import ReviewFormComponent from "./components/dumb/ReviewFormComponent";
+import AssignPapersComponent from "./components/dumb/Conference/AssignPapersComponent";
+import {observer} from "mobx-react";
 
 
 const RoutingBasicComponent = (props) => {
@@ -25,7 +28,7 @@ const RoutingBasicComponent = (props) => {
             btns = [{name: "authorButton", path: "/caca"}]
         }
         if (cookies.get('role') === "chair") {
-            btns = [{name: "ADD CONFERENCE", path: "/addConference"}]
+            btns = [{name: "ADD CONFERENCE", path: "/addConference"}, {name: "test assign paper json", path: "/assignPapers"}];
         }
         if (cookies.get('role') === "reviewer") {
             btns = [{name: "reviewerDoSomething", path: "/caca"}];
@@ -35,8 +38,10 @@ const RoutingBasicComponent = (props) => {
             <React.Fragment>
                 {props.logged ? <HeaderComponent logged={props.logged} actionLogout={props.actionLogout} btns={btns}/> : '' }
                 <Switch>
+
                     {props.logged ? <Route exact path='/addConference' render={() => <AddConference store={storeCommitteeMembers}/>}/> : ''}
                     {props.logged ? <Route exact path='/caca' component={ReviewFormComponent}/> : ''}
+                    {props.logged ? <Route exact path='/assignPapers' render={() => <AssignPapersComponent store={storeAssignPaperData}/>}/> : ''}
                     {props.logged ?
                         <Route exact path='/' render={() => <ConferenceList store={storeConferences}/>}/> : <Route exact path='/' render={() => <Authentification action={props.action}/>}/> }
                     {!props.logged ? <Route exact path='/sign-in'
