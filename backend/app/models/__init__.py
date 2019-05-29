@@ -9,7 +9,7 @@ from .result import Result
 from .reviewer import Reviewer
 from .section import Section
 from .user import User
-from .wishToReview import WIshToReview
+from .wishToReview import WishToReview
 
 __all__ = [
     'Author',
@@ -23,5 +23,5 @@ __all__ = [
     'Reviewer',
     'Section',
     'User',
-    'WIshToReview'
+    'WishToReview'
 ]

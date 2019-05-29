@@ -20,6 +20,7 @@ from app.views import *
 from app.views.add_proposal import add_poposals
 from app.views.add_conference_view import AddConfereceView
 from app.views.committe_member_view import CommitteeMembersView
+from app.views.papers_reviwers_to_assign import PapersReviwersToAssign
 from app.views.proposal_view import ProposalView
 from app.views.section_view import SectionView
 from app.views.user_auth import auth, logout
@@ -33,14 +34,12 @@ router.register(r'sectionsbyconf', SectionByConferenceView, base_name='sectionby
 router.register(r'sections', SectionView, base_name='section')
 router.register(r'proposals', ProposalView, base_name='proposal')
 router.register(r'members', CommitteeMembersView, base_name='members')
+router.register(r'papers_reviwers_to_assign/(?P<session>\S+)', PapersReviwersToAssign, base_name='papers_reviwers_to_assign')
 urlpatterns = [
-    # url(r'^', include('', namespace='app')),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('auth/', auth, name='auth'),
     path('logout/', logout, name='logout'),
-    # path('logout/', logout, name='logout'),
-    # path('test/', , name='test'),
     path('register-author/', Register.registerAuthor, name='register-author'),
     path('register-listener/', Register.registerListener, name='register-listener'),
     path('register-reviewer/', Register.registerReviewer, name='register-reviewer'),
