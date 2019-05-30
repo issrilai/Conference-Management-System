@@ -62,6 +62,9 @@ const SessionList = observer(class ConferenceList extends React.Component{
               </ListItem>
               :""
             )}
+            <div className="NextButton">
+              <button type="submit" className="FormField_Link" onClick={this.handleSubmit}>Submit</button>
+            </div>
           </List>
         );
       }

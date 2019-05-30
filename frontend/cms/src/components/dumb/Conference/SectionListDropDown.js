@@ -25,7 +25,7 @@ const SectionListDropDown = observer(class SectionListDropDown extends React.Com
             ?<SectionToggle name={section.name} id={section.id}/>
             :""
         );
-        return <div>
+        return <div style={{width: 90 + '%'}}>
             <ul>
                 {listOfSections}
             </ul>

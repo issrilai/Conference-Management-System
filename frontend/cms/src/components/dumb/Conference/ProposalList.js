@@ -26,7 +26,7 @@ const ProposallList = observer(class PropList extends React.Component{
 
     render(){
         const {proposals}= this.props.store;
-        return <List className= "listItems">
+        return <List className= "listItems" style={{width: 90 + '%'}}>
             {proposals.map(value => (
               value.sid_id == this.state.id)
               ?<ListItem key={value} role={undefined}>

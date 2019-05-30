@@ -19,19 +19,19 @@ const RoutingBasicComponent = (props) => {
         let btns = [];
         if (cookies.get('role') === "listener") {
             btns = [{
-                name: "SIGN OUT",
+                name: "",
                 path: "/caca"
             }]
 
         }
         if (cookies.get('role') === 'author') {
-            btns = [{name: "authorButton", path: "/caca"}]
+            btns = [{name: "", path: "/caca"}]
         }
         if (cookies.get('role') === "chair") {
             btns = [{name: "ADD CONFERENCE", path: "/addConference"}, {name: "test assign paper json", path: "/assignPapers"}];
         }
         if (cookies.get('role') === "reviewer") {
-            btns = [{name: "reviewerDoSomething", path: "/caca"}];
+            btns = [{name: "review papers", path: "/caca"}];
         }
 
         return (
