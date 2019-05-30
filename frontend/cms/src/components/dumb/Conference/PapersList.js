@@ -3,14 +3,16 @@ import {observer} from "mobx-react";
 import SectionDropDown from "./SectionDropDownForAssign";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
+import PaperComponent from "./PaperComponent";
 
-class AssignPapersComponent extends React.Component {
+class PapersList extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
             expanded: null,
+            papers: props.papers
           };
     }
 
@@ -20,23 +22,15 @@ class AssignPapersComponent extends React.Component {
         });
       };
 
-    componentDidMount() {
-        if (this.props.store.loaded === false) {
-            this.props.store.loadWishToReviewData();
-        }
-    }
 
     render() {
 
-        const {wishToReviewData} = this.props.store;
-        console.log(this.props.store.wishToReviewData);
-
-        const lista = wishToReviewData.map((json) => (
-                <SectionDropDown name={json.name} papers={json.papers} ></SectionDropDown>));
+        const lista = this.state.papers.map((paper) => (
+                <PaperComponent name={paper.name} reviewers={paper.wishToReview} id={paper.id} ></PaperComponent>));
 
         return (
-            <React.Fragment>
-                <ul>
+            <React.Fragment >
+                <ul style={{width: 90 + '%'}}>
                     {lista}
                 </ul>
 
@@ -46,4 +40,4 @@ class AssignPapersComponent extends React.Component {
     }
 }
 
-export default observer(AssignPapersComponent);
+export default PapersList
