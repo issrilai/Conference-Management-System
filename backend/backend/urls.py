@@ -25,7 +25,9 @@ from app.views.papers_reviwers_to_assign import PapersReviwersToAssign
 from app.views.proposal_view import ProposalView
 from app.views.section_view import SectionView
 from app.views.user_auth import auth, logout
-from app.views.wishtoreview_view import WishToReview
+from app.views.wishtoreview_view import WishToReviewView
+from app.views.wishToReviewViewTest import TestWishToReview
+from app.views.wishtoreview_view import WishToReviewView
 from app.views.review_result_view import reviewResult
 
 router = routers.DefaultRouter()
@@ -36,6 +38,7 @@ router.register(r'sections', SectionView, base_name='section')
 router.register(r'proposals', ProposalView, base_name='proposal')
 router.register(r'members', CommitteeMembersView, base_name='members')
 router.register(r'papers_reviwers_to_assign/(?P<session>\S+)', PapersReviwersToAssign, base_name='papers_reviwers_to_assign')
+router.register(r'wishToReview', TestWishToReview, base_name='wish-to-rev')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
@@ -50,7 +53,7 @@ urlpatterns = [
     path('submit-proposal/', add_poposals, name='submit-proposal'),
     path('review-result/', reviewResult, name='review-result'),
     path('add-conference/', AddConfereceView.addConference, name='add-conference'),
-    path('wishtoreview/', WishToReview.addWishToReview, name='wishtoreview'),
+    path('wishtoreview/', WishToReviewView.addWishToReview, name='wishtoreview'),
     path('assign_papers/', AssignPapers.addAssign, name='assign_papers')
 
     # path('auth/', LoginView)

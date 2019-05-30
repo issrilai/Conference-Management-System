@@ -59,3 +59,9 @@ class ChairSectionPaperSerializer(serializers.ModelSerializer):
     class Meta:
         model = Section
         fields = ('id', 'name', 'chair_id', 'papers')
+
+
+class WishToReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=WishToReview
+        fields = ('id', 'answer', 'prid_id', 'rid_id')
