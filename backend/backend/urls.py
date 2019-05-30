@@ -21,6 +21,7 @@ from app.views.add_proposal import add_poposals
 from app.views.add_conference_view import AddConfereceView
 from app.views.assign_papers_view import AssignPapers
 from app.views.committe_member_view import CommitteeMembersView
+from app.views.list_of_papers_to_review import PapersForReviewerView
 from app.views.papers_reviwers_to_assign import PapersReviwersToAssign
 from app.views.proposal_view import ProposalView
 from app.views.section_view import SectionView
@@ -39,6 +40,7 @@ router.register(r'proposals', ProposalView, base_name='proposal')
 router.register(r'members', CommitteeMembersView, base_name='members')
 router.register(r'papers_reviwers_to_assign/(?P<session>\S+)', PapersReviwersToAssign, base_name='papers_reviwers_to_assign')
 router.register(r'wishToReview', TestWishToReview, base_name='wish-to-rev')
+router.register(r'papers_for_reviewer_view/(?P<session>\S+)', PapersForReviewerView, base_name='papers-for-reviewer')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
@@ -56,5 +58,4 @@ urlpatterns = [
     path('wishtoreview/', WishToReviewView.addWishToReview, name='wishtoreview'),
     path('assign_papers/', AssignPapers.addAssign, name='assign_papers')
 
-    # path('auth/', LoginView)
 ]

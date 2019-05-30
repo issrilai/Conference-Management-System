@@ -1,4 +1,3 @@
-from django.contrib.sessions.models import Session
 from django.core.exceptions import ObjectDoesNotExist
 from rest_framework.decorators import api_view
 from rest_framework.utils import json
