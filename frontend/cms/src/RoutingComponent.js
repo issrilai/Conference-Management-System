@@ -28,10 +28,10 @@ const RoutingBasicComponent = (props) => {
             btns = [{name: "", path: "/caca"}]
         }
         if (cookies.get('role') === "chair") {
-            btns = [{name: "ADD CONFERENCE", path: "/addConference"}, {name: "assign papers", path: "/assignPapers"}];
+            btns = [{name: "ADD CONFERENCE", path: "/addConference"}, {name: "assign papers", path: "/assignPapers"}, {name: "View papers", path: "/"}];
         }
         if (cookies.get('role') === "reviewer") {
-            btns = [{name: "review papers", path: "/caca"}];
+            btns = [{name: "review papers", path: "/caca"}, {name: "choose papers", path: "/"}];
         }
 
         return (
