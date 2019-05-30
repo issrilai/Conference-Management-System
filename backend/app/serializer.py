@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from app.models import Conference, Section, Proposal, ProgramCommitteeMember, WishToReview, Reviewer
+from app.models import Conference, Section, Proposal, ProgramCommitteeMember, WishToReview, Reviewer, Result
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -63,5 +63,13 @@ class ChairSectionPaperSerializer(serializers.ModelSerializer):
 
 class WishToReviewSerializer(serializers.ModelSerializer):
     class Meta:
-        model=WishToReview
+        model = WishToReview
         fields = ('id', 'answer', 'prid_id', 'rid_id')
+
+
+class PapersForReviewerSerializer(serializers.ModelSerializer):
+    prid = ProposalSerializer(read_only=True)
+
+    class Meta:
+        model = Result
+        fields = ('id',  'rid','prid')
