@@ -33,7 +33,7 @@ class PaperComponent extends React.Component{
 
         const { expanded } = this.state;
 
-        return <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')} style={{width: 50 + '%'}}>
+        return <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')} style={{width: 90 + '%'}}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             <Typography className = "heading">{this.state.name}</Typography>
             <Typography className="secondaryHeading"/>
