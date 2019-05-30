@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from app.models import WishToReview, ProgramCommitteeMember, Reviewer
 
 
-class WishToReview:
+class WishToReviewView:
     @api_view(['POST'])
     def addWishToReview(request):
         data = request.body
@@ -20,14 +20,13 @@ class WishToReview:
             session = Session.objects.get(session_key=session_key)
         except ObjectDoesNotExist as e:
             session = None
-
+        rid = None
         if session is not None:
             uid = session.get_decoded().get('uid')
             try:
                 pcmember = ProgramCommitteeMember.objects.get(uid_id=uid)
             except ObjectDoesNotExist as e:
                 pcmember = None
-
             if pcmember is not None:
                 try:
                     reviewer = Reviewer.objects.get(pcid_id=pcmember.id)
@@ -38,10 +37,9 @@ class WishToReview:
                     rid = reviewer.id
                 else:
                     rid = None
-
         if rid is not None:
             try:
-                wishtoreview = WishToReview.objects.get(prid_id=proposal, rid_id=rid)
+                wishtoreview = WishToReview.objects.filter(prid_id=proposal, rid_id=rid).first()
             except ObjectDoesNotExist as e:
                 wishtoreview = None
 
@@ -49,9 +47,7 @@ class WishToReview:
                 wishtoreview.answer = value
                 wishtoreview.save()
             else:
-                wishtoreview_instance = WishToReview.objects.create(answer=value,
-                                                                    prid_id=proposal, rid_id=rid)
-                wishtoreview_instance.save()
+                WishToReview.objects.create(answer=value, prid_id=proposal, rid_id=rid)
             return Response("ok", 200)
         else:
             return Response("not ok", 400)
