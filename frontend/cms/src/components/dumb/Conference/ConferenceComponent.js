@@ -97,10 +97,8 @@ const ConfToggle = observer ( class ConferenceToggle extends React.Component{
         return <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             <Typography className = "heading">{this.state.name}</Typography>
-            <Typography className="secondaryHeading">{this.addSectionButton()}</Typography>
             <Typography className="secondaryHeading">{this.state.dateStart} | {this.state.dateStop}</Typography>
-            
-            
+            <Typography className="secondaryHeading">{this.addSectionButton()}</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             {this.show()}
