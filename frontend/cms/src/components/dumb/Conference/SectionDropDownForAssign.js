@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import ProposallList from './ProposalList';
 import SimpleProposallList from './SimpleProposalList';
 import Cookies from "universal-cookie";
-import PaperComponent from './PaperComponent';
+import PapersList from './PapersList';
 
 class SectionDropDown extends React.Component{
     constructor(props) {
@@ -33,15 +33,13 @@ class SectionDropDown extends React.Component{
 
         const { expanded } = this.state;
 
-        return <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
+        return <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')} >
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             <Typography className = "heading">{this.state.name}</Typography>
             <Typography className="secondaryHeading"/>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            {this.state.papers.map((paper) => 
-                <PaperComponent name={paper.name} reviewers={paper.wishToReview} id={paper.id}></PaperComponent>
-                )}
+              <PapersList papers={this.state.papers}></PapersList>
           </ExpansionPanelDetails>
         </ExpansionPanel>
       }

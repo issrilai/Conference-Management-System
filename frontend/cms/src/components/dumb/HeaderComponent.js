@@ -41,18 +41,20 @@ class HeaderComponent extends React.Component
                 <div className="root">
                     <AppBar position="static" color="primary">
                         <Toolbar>
+                            <img src={require('../../styles/logo.png')} style={{width: "20%", height: "100%"}}/>
                             <Typography variant="h6" color="inherit" className="grow">
-                                Logo
                             </Typography>
+                            <div style={{align: "right"}}>
                             {
                                 btns.map(function({name, path}) {
                                     return <Button color="inherit" className="menuButton"><Link to={path}>{name}</Link></Button>
                                 })
                             }
                             <Button color="inherit" className="menuButton" onClick={handleButtonClicked}>LOG OUT</Button>
-
+                            </div>
                         </Toolbar>
                     </AppBar>
+
                 </div>
             </MuiThemeProvider>
         )

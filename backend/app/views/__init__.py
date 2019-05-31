@@ -7,5 +7,6 @@ __all__ = [
     'HelloView',
     'ConferenceView',
     'SectionByConferenceView',
-    'Register'
+    'Register',
+
 ]
