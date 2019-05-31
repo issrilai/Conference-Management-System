@@ -19,6 +19,7 @@ from rest_framework import routers
 from app.views import *
 from app.views.add_proposal import add_poposals
 from app.views.add_conference_view import AddConfereceView
+from app.views.add_section import AddSection
 from app.views.assign_papers_view import AssignPapers
 from app.views.committe_member_view import CommitteeMembersView
 from app.views.papers_reviwers_to_assign import PapersReviwersToAssign
@@ -54,7 +55,7 @@ urlpatterns = [
     path('review-result/', reviewResult, name='review-result'),
     path('add-conference/', AddConfereceView.addConference, name='add-conference'),
     path('wishtoreview/', WishToReviewView.addWishToReview, name='wishtoreview'),
-    path('assign_papers/', AssignPapers.addAssign, name='assign_papers')
-
+    path('assign_papers/', AssignPapers.addAssign, name='assign_papers'),
+    path('add-section/', AddSection.add_sections, name='add-section')
     # path('auth/', LoginView)
 ]

@@ -11,6 +11,20 @@ import Typography from '@material-ui/core/Typography';
 import SectionListDropDown from './SectionListDropDown';
 import Cookies from "universal-cookie";
 import {observer} from "mobx-react";
+import Button from "@material-ui/core/Button";
+import Modal from "@material-ui/core/Modal";
+import AddSectionComponent from './AddSectionComponent';
+
+function getModalStyle() {
+  const top = -500;
+  const left = -500;
+
+  return {
+      top: `${top}%`,
+      left: `${left}%`,
+      transform: `translate(-${top}%, -${left}%)`,
+  };
+}
 
 const ConfToggle = observer ( class ConferenceToggle extends React.Component{
     constructor(props) {
@@ -21,7 +35,8 @@ const ConfToggle = observer ( class ConferenceToggle extends React.Component{
           name: props.name,
           id: props.id,
           dateStart: props.dateStart,
-          dateStop: props.dateStop
+          dateStop: props.dateStop,
+          open: false,
         };
       }
     
@@ -29,6 +44,14 @@ const ConfToggle = observer ( class ConferenceToggle extends React.Component{
         this.setState({
           expanded: expanded ? panel : false,
         });
+      };
+
+      handleOpen = (id) => {
+        this.setState({open: true, id: id});
+      };
+
+      handleClose = () => {
+        this.setState({open: false});
       };
 
       show(){
@@ -49,13 +72,35 @@ const ConfToggle = observer ( class ConferenceToggle extends React.Component{
         }
       }
 
+      addSectionButton(){
+        const cookies = new Cookies();
+        if(cookies.get('role') === "chair"){
+          return <div>
+            <Button onClick={() => this.handleOpen(this.state.id)} stylele={{float: 'right'}}>Add section</Button>
+                <Modal
+                    aria-labelledby="simple-modal-title"
+                    aria-describedby="simple-modal-description"
+                    open={this.state.open}
+                    onClose={this.handleClose}
+                >
+                    <div style={getModalStyle()} className="paper">
+                        <AddSectionComponent confId={this.state.id} onSubmit={this.handleClose}/>
+                    </div>
+                </Modal>
+          </div>
+        }
+      }
+
       render() {
         const { expanded } = this.state;
 
         return <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             <Typography className = "heading">{this.state.name}</Typography>
+            <Typography className="secondaryHeading">{this.addSectionButton()}</Typography>
             <Typography className="secondaryHeading">{this.state.dateStart} | {this.state.dateStop}</Typography>
+            
+            
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             {this.show()}
