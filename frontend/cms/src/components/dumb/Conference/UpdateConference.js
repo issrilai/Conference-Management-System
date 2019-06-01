@@ -28,33 +28,20 @@ const UpdateConference = observer(class UpdateConference extends React.Component
     constructor(props) {
         super(props);
 
-        extendObservable(this, {
-            confID: this.props.match.params.confID,
-            name: storeConferenceById.conference.name,
-            dateStart: storeConferenceById.conference.dateStart,
-            dateStop: storeConferenceById.conference.dateStop,
-            abstractDeadline: storeConferenceById.conference.abstractDeadline,
-            submitDeadline: storeConferenceById.conference.submitDeadline,
-            bidDeadline: storeConferenceById.conference.bidDeadline,
-            reviewDeadline: storeConferenceById.conference.reviewDeadline
-
-        });
-
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
     componentDidMount() {
-        if (storeConferenceById.loaded === false) {
-            storeConferenceById.id = this.props.match.params.confID;
-            storeConferenceById.loadConference();
-        }
+        storeConferenceById.id = this.props.match.params.confID;
+        storeConferenceById.loadConference();
     }
 
     handleChange = e => {
         const {name, value} = e.target;
-        this[name] = value;
+        storeConferenceById.conference[name] = value;
+        console.log(name, value);
     };
 
     handleSubmit = e => {
@@ -75,14 +62,14 @@ const UpdateConference = observer(class UpdateConference extends React.Component
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: JSON.stringify({
-                confID: this.confID,
-                name: this.name,
-                dateStart: this.dateStart,
-                dateStop: this.dateStop,
-                abstractDeadline: this.abstractDeadline,
-                submitDeadline: this.submitDeadline,
-                bidDeadline: this.bidDeadline,
-                reviewDeadline: this.reviewDeadline,
+                confID: storeConferenceById.conference.id,
+                name: storeConferenceById.conference.name,
+                dateStart: storeConferenceById.conference.dateStart,
+                dateStop: storeConferenceById.conference.dateStop,
+                abstractDeadline: storeConferenceById.conference.abstractDeadline,
+                submitDeadline: storeConferenceById.conference.submitDeadline,
+                bidDeadline: storeConferenceById.conference.bidDeadline,
+                reviewDeadline: storeConferenceById.conference.reviewDeadline,
             })
 
         }).then(function (response) {
@@ -92,14 +79,14 @@ const UpdateConference = observer(class UpdateConference extends React.Component
                 console.log(JSON.stringify(myJson));
             });
         console.log(JSON.stringify({
-            confID: this.confID,
-            name: this.name,
-            dateStart: this.dateStart,
-            dateStop: this.dateStop,
-            abstractDeadline: this.abstractDeadline,
-            submitDeadline: this.submitDeadline,
-            bidDeadline: this.bidDeadline,
-            reviewDeadline: this.reviewDeadline,
+            confID: storeConferenceById.conference.id,
+            name: storeConferenceById.conference.name,
+            dateStart: storeConferenceById.conference.dateStart,
+            dateStop: storeConferenceById.conference.dateStop,
+            abstractDeadline: storeConferenceById.conference.abstractDeadline,
+            submitDeadline: storeConferenceById.conference.submitDeadline,
+            bidDeadline: storeConferenceById.conference.bidDeadline,
+            reviewDeadline: storeConferenceById.conference.reviewDeadline,
         }));
 
         storeConferenceById.loaded = false;
@@ -109,14 +96,12 @@ const UpdateConference = observer(class UpdateConference extends React.Component
 
 
     render() {
-        const {name, dateStart, dateStop, abstractDeadline, submitDeadline, bidDeadline, reviewDeadline, confID} = this;
-        const {conference} = storeConferenceById;
+        const {name, dateStart, dateStop, abstractDeadline, submitDeadline, bidDeadline, reviewDeadline, confID} = storeConferenceById.conference;
         return (
             <MuiThemeProvider theme={theme}>
                 <form onSubmit={this.handleSubmit} className="root">
                     <div className="inputField" id="name" style={{marginTop: 56, fontWeight: 900, fontSize: 20}}>
                         {storeConferenceById.conference.name}
-                        {/*{name}*/}
                     </div>
                     <div className="inputField" style={{marginTop: 56}}>
                         <TextField
