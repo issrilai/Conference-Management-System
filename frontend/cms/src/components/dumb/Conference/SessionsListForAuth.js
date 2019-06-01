@@ -5,22 +5,6 @@ import List from '@material-ui/core/List';
 import SessionListItem from "./SessionListItem";
 
 
-function getModalStyle() {
-    const top = -500;
-    const left = -500;
-
-    return {
-        width: 750,
-        height:460,
-        marginLeft:380,
-        marginTop:80,
-
-
-      top: `${top}%`,
-      left: `${left}%`,
-      transform: `translate(-${top}%, -${left}%)`,
-    };
-}
 
 const SessionListForAuth = observer(class ConferenceList extends React.Component {
 

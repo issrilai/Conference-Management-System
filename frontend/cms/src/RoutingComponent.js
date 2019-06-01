@@ -8,6 +8,9 @@ import AddConference from "./components/dumb/Conference/AddConference";
 import UpdateConference from "./components/dumb/Conference/UpdateConference";
 import storeConferences from './components/smart/getConferenceComponent';
 import ReviewFormComponent from "./components/dumb/ReviewFormComponent";
+import AssignPapersComponent from "./components/dumb/Conference/AssignPapersComponent";
+import storeCommitteeMembers from "./components/smart/getCommitteeMembersComponent";
+import storeAssignPaperData from "./components/smart/getAssignPaperDataComponent";
 
 
 const RoutingBasicComponent = (props) => {
@@ -38,9 +41,8 @@ const RoutingBasicComponent = (props) => {
 
                     {props.logged ? <Route exact path='/addConference' render={() => <AddConference store={storeCommitteeMembers}/>}/> : ''}
                     {props.logged ? <Route exact path='/caca' component={ReviewFormComponent}/> : ''}
-                    {props.logged ? <Route exact path='/assignPapers' render={() => <AssignPapersComponent store={storeAssignPaperData}/>}/> : ''}
-                    {props.logged ? <Route exact path='/updateConference' component={UpdateConference}/> : ''}
                     {props.logged ? <Route exact path='/updateConference/:confID' component={UpdateConference}/> : ''}
+                    {props.logged ? <Route exact path='/assignPapers' render={() => <AssignPapersComponent store={storeAssignPaperData}/>}/> : ''}
                     {props.logged ?
                         <Route exact path='/' render={() => <ConferenceList store={storeConferences}/>}/> : <Route exact path='/' render={() => <Authentification action={props.action}/>}/> }
                     {!props.logged ? <Route exact path='/sign-in'
