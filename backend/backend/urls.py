@@ -43,10 +43,13 @@ router.register(r'papers_reviwers_to_assign/(?P<session>\S+)', PapersReviwersToA
 router.register(r'wishToReview', TestWishToReview, base_name='wish-to-rev')
 router.register(r'papers_for_reviewer_view/(?P<session>\S+)', PapersForReviewerView, base_name='papers-for-reviewer')
 urlpatterns = [
+    # url(r'^', include('', namespace='app')),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('auth/', auth, name='auth'),
     path('logout/', logout, name='logout'),
+    # path('logout/', logout, name='logout'),
+    # path('test/', , name='test'),
     path('register-author/', Register.registerAuthor, name='register-author'),
     path('register-listener/', Register.registerListener, name='register-listener'),
     path('register-reviewer/', Register.registerReviewer, name='register-reviewer'),
@@ -59,5 +62,7 @@ urlpatterns = [
     path('wishtoreview/', WishToReviewView.addWishToReview, name='wishtoreview'),
     path('assign_papers/', AssignPapers.addAssign, name='assign_papers'),
     path('add-section/', AddSection.add_sections, name='add-section')
+    path('update-conference/', UpdateConferenceView.updateConference, name='update-conference')
+
     # path('auth/', LoginView)
 ]
