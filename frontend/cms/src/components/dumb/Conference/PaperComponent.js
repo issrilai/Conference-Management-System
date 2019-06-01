@@ -39,7 +39,7 @@ class PaperComponent extends React.Component{
             <Typography className="secondaryHeading"/>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <ReviewersCheckboxList reviewers={this.state.reviewers} prid={this.state.id}></ReviewersCheckboxList>
+            <ReviewersCheckboxList reviewers={this.state.reviewers} prid={this.state.id}/>
           </ExpansionPanelDetails>
         </ExpansionPanel>
       }

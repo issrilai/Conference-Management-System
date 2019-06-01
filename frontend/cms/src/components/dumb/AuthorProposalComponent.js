@@ -6,6 +6,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import {extendObservable} from "mobx";
 import {observer} from "mobx-react";
 import Cookies from 'universal-cookie';
+import axios, {post} from 'axios';
 
 const theme = createMuiTheme({
     palette: {
@@ -33,13 +34,20 @@ class AuthorProposalComponent extends  Component {
             proposal:'',
         });
 
+        this.state = {
+            files: false,
+        };
+
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
     }
     handleChange = e => {
         const {name, value} = e.target;
+        const files = e.target.files;
         this[name] = value;
+
+        this.setState({files: files});
     };
 
     handleSubmit = e => {
@@ -74,14 +82,34 @@ class AuthorProposalComponent extends  Component {
             .then(function(myJson) {
                 console.log(JSON.stringify(myJson));
             });
-        console.log(JSON.stringify({
-            name: this.name,
-            keywords: this.keywords,
-            abstract: this.abstract,
-            proposal: this.proposal,
-            id: this.props.id,
-        }));
+        //
+        // let reader = new FileReader();
+        // reader.readAsDataURL(this.state.files[0]);
+        //
+        // reader.onload=(e)=>{
 
+        let formData = new FormData();
+        formData.append('pdf', this.state.files[0]);
+
+        alert(this.state.files[0].type);
+
+        fetch("http://127.0.0.1:8000/get_pdf_view/", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/pdf',
+                'Media-Type': 'pdf',
+            },
+            body: JSON.stringify({
+                file: this.state.files[0],
+            })
+
+        }).then( function (response) {
+            return response.json();
+        }).then(function (response_json) {
+            console.log(JSON.stringify(response_json));
+        });
+        // };
     };
 
     render() {

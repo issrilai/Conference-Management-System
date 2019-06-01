@@ -32,7 +32,7 @@ class AssignPapersComponent extends React.Component {
         console.log(this.props.store.wishToReviewData);
 
         const lista = wishToReviewData.map((json) => (
-                <SectionDropDown name={json.name} papers={json.papers} ></SectionDropDown>));
+                <SectionDropDown name={json.name} papers={json.papers} />));
 
         return (
             <React.Fragment>

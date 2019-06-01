@@ -8,9 +8,10 @@ import AddConference from "./components/dumb/Conference/AddConference";
 import storeConferences from './components/smart/getConferenceComponent';
 import storeCommitteeMembers from './components/smart/getCommitteeMembersComponent';
 import storeAssignPaperData from './components/smart/getAssignPaperDataComponent'
-import ReviewFormComponent from "./components/dumb/ReviewFormComponent";
 import AssignPapersComponent from "./components/dumb/Conference/AssignPapersComponent";
-import {observer} from "mobx-react";
+import PapersList from "./components/dumb/Conference/PapersList";
+import storeAssignedPapers from "./components/smart/getAssignedPapers";
+import ReviewerPapersList from "./components/dumb/Conference/ReviewerPapersList";
 
 
 const RoutingBasicComponent = (props) => {
@@ -20,18 +21,18 @@ const RoutingBasicComponent = (props) => {
         if (cookies.get('role') === "listener") {
             btns = [{
                 name: "",
-                path: "/caca"
+                path: "/papers"
             }]
 
         }
         if (cookies.get('role') === 'author') {
-            btns = [{name: "", path: "/caca"}]
+            btns = [{name: "", path: "/"}]
         }
         if (cookies.get('role') === "chair") {
             btns = [{name: "ADD CONFERENCE", path: "/addConference"}, {name: "assign papers", path: "/assignPapers"}, {name: "View papers", path: "/"}];
         }
         if (cookies.get('role') === "reviewer") {
-            btns = [{name: "review papers", path: "/caca"}, {name: "choose papers", path: "/"}];
+            btns = [{name: "review papers", path: "/papers"}, {name: "choose papers", path: "/"}];
         }
 
         return (
@@ -40,7 +41,7 @@ const RoutingBasicComponent = (props) => {
                 <Switch>
 
                     {props.logged ? <Route exact path='/addConference' render={() => <AddConference store={storeCommitteeMembers}/>}/> : ''}
-                    {props.logged ? <Route exact path='/caca' component={ReviewFormComponent}/> : ''}
+                    {props.logged ? <Route exact path='/papers' render={() => <ReviewerPapersList store={storeAssignedPapers}/>}/> : ''}
                     {props.logged ? <Route exact path='/assignPapers' render={() => <AssignPapersComponent store={storeAssignPaperData}/>}/> : ''}
                     {props.logged ?
                         <Route exact path='/' render={() => <ConferenceList store={storeConferences}/>}/> : <Route exact path='/' render={() => <Authentification action={props.action}/>}/> }
