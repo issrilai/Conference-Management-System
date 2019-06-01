@@ -18,6 +18,7 @@ from django.urls import path, include
 from rest_framework import routers
 from app.views import *
 from app.views.add_proposal import add_poposals
+from app.views.update_conf_view import UpdateConferenceView
 from app.views.add_conference_view import AddConfereceView
 from app.views.proposal_view import ProposalView
 from app.views.section_view import SectionView
@@ -49,7 +50,8 @@ urlpatterns = [
     path('submit-proposal/', add_poposals, name='submit-proposal'),
     path('review-result/', reviewResult, name='review-result'),
     path('add-conference/', AddConfereceView.addConference, name='add-conference'),
-    path('wishtoreview/', WishToReview.addWishToReview, name='wishtoreview')
+    path('wishtoreview/', WishToReview.addWishToReview, name='wishtoreview'),
+    path('update-conference/', UpdateConferenceView.updateConference, name='update-conference')
 
     # path('auth/', LoginView)
 ]
