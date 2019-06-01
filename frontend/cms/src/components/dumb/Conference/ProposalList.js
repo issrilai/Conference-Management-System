@@ -28,12 +28,12 @@ const ProposallList = observer(class PropList extends React.Component{
         const {proposals}= this.props.store;
         return <List className= "listItems">
             {proposals.map(value => (
-              value.sid_id == this.state.id)
+              value.sid_id === this.state.id)
               ?<ListItem key={value} role={undefined}>
                 <ListItemText primary={`${value.name}`} secondary={`${value.abstract}`} style={{width: 50 + '%'}}/>
-                <WishToReviewList id={value.id}></WishToReviewList>
+                <WishToReviewList id={value.id}/>
               </ListItem>
-              :<div></div>
+              :<div/>
             )}
           </List>
     }
