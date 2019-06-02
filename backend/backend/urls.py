@@ -27,6 +27,7 @@ from app.views.list_of_papers_to_review import PapersForReviewerView
 from app.views.papers_reviwers_to_assign import PapersReviwersToAssign
 from app.views.proposal_view import ProposalView
 from app.views.section_view import SectionView
+from app.views.update_conf_view import UpdateConferenceView
 from app.views.user_auth import auth, logout
 
 from app.views.review_result_view import reviewResult
@@ -62,4 +63,6 @@ urlpatterns = [
     path('assign_papers/', AssignPapers.addAssign, name='assign_papers'),
     path('add-section/', AddSection.add_sections, name='add-section'),
     path('get_pdf_view/', add_pdf, name='get_pdf_view'),
+    path('update-conference/', UpdateConferenceView.updateConference, name='update-conference')
 ]
+
