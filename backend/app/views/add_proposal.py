@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework.utils import json
 from django.core.exceptions import ObjectDoesNotExist
 from app.models import Author, Proposal
+from django.core.files.base import ContentFile
 
 
 @api_view(['POST'])
@@ -36,3 +37,22 @@ def add_poposals(request):
         return Response("ok", 200)
     else:
         return Response("couldn't add proposal", 400)
+
+
+@api_view(['POST'])
+@permission_classes((BasePermission,))
+def add_pdf(request):
+    data = request.body
+    body = json.loads(data)
+
+    # with open("/home/razvan/prog/conference/backend/app/file1.pdf", "wb") as f:
+    #     f.write(body['file'])
+    #
+    # with open("/home/razvan/prog/conference/backend/app/file1.pdf", "r") as f:
+    #     print(f.readline())
+
+    for filename, file in request.FILES.iteritems():
+        name = request.FILES[filename].name
+        print(name)
+
+    return Response("ok", 200)

@@ -18,7 +18,7 @@ from django.urls import path, include
 from rest_framework import routers
 
 from app.views import *
-from app.views.add_proposal import add_poposals
+from app.views.add_proposal import add_poposals, add_pdf
 from app.views.add_conference_view import AddConfereceView
 from app.views.add_section import AddSection
 from app.views.assign_papers_view import AssignPapers
@@ -60,5 +60,6 @@ urlpatterns = [
     path('add-conference/', AddConfereceView.addConference, name='add-conference'),
     path('wishtoreview/', WishToReviewView.addWishToReview, name='wishtoreview'),
     path('assign_papers/', AssignPapers.addAssign, name='assign_papers'),
-    path('add-section/', AddSection.add_sections, name='add-section')
+    path('add-section/', AddSection.add_sections, name='add-section'),
+    path('get_pdf_view/', add_pdf, name='get_pdf_view'),
 ]

@@ -72,4 +72,4 @@ class PapersForReviewerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Result
-        fields = ('id',  'rid','prid')
+        fields = ('id',  'rid', 'prid')

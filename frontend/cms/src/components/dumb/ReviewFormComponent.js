@@ -31,7 +31,8 @@ class ReviewFormComponent extends React.Component {
         extendObservable(this, {
             suggestions: "",
             qualifier: "",
-            paper: 4,
+            paper: this.props.pid,
+            name: this.props.name,
         });
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -76,7 +77,7 @@ class ReviewFormComponent extends React.Component {
         return (
             <React.Fragment>
                 <MuiThemeProvider theme={theme}>
-                    <h2>Review Paper</h2>
+                    <h1>Review Paper: {this.props.name}</h1>
                     <FormControl component="fieldset">
                         <RadioGroup aria-label="position" name="qualifier" style={{marginTop:40}} onChange={this.handleChange} row>
                             <FormControlLabel

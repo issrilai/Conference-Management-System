@@ -26,7 +26,7 @@ class PapersList extends React.Component {
     render() {
 
         const lista = this.state.papers.map((paper) => (
-                <PaperComponent name={paper.name} reviewers={paper.wishToReview} id={paper.id} ></PaperComponent>));
+                <PaperComponent name={paper.name} reviewers={paper.wishToReview} id={paper.id} />));
 
         return (
             <React.Fragment >
