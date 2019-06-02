@@ -28,4 +28,4 @@ class PapersForReviewerView(viewsets.ModelViewSet):
             return Response("could not find reviewer", 400)
 
         if rid is not None:
-            return Result.objects.filter(rid_id=rid).all()
+            return Result.objects.filter(rid_id=rid).filter(suggestions="").all()
