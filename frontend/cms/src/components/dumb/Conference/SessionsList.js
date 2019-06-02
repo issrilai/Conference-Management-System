@@ -5,6 +5,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
+import Button from '@material-ui/core/Button';
+
 
 const SessionList = observer(class ConferenceList extends React.Component{
 
@@ -63,7 +65,7 @@ const SessionList = observer(class ConferenceList extends React.Component{
               :""
             )}
             <div className="NextButton">
-              <button type="submit" className="FormField_Link" onClick={this.handleSubmit}>Submit</button>
+              <Button type="submit" className="FormField_Link" onClick={this.handleSubmit}>Submit</Button>
             </div>
           </List>
         );
