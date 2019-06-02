@@ -98,7 +98,6 @@ class AuthorProposalComponent extends  Component {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/pdf',
-                'Media-Type': 'pdf',
             },
             body: JSON.stringify({
                 file: this.state.files[0],
