@@ -112,7 +112,7 @@ const ConfToggle = observer(class ConferenceToggle extends React.Component {
                     <Typography className="heading">{this.state.name}</Typography>
                     <Typography className="secondaryHeading">{this.state.dateStart} | {this.state.dateStop}</Typography>
                     <Typography className="secondaryHeading">{this.addSectionButton()}</Typography>
-                    {this.showButtonUpdate(this.state.id)}
+                    <Typography className="secondaryHeading"> {this.showButtonUpdate(this.state.id)}</Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     {this.show()}
