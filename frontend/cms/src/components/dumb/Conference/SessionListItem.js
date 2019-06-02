@@ -6,11 +6,18 @@ import AuthorProposalComponent from "../AuthorProposalComponent";
 import ListItemText from "@material-ui/core/ListItemText";
 import React from "react";
 
+
 function getModalStyle() {
     const top = -500;
     const left = -500;
 
     return {
+        width: 750,
+        height:460,
+        marginLeft:380,
+        marginTop:80,
+
+
         top: `${top}%`,
         left: `${left}%`,
         transform: `translate(-${top}%, -${left}%)`,
