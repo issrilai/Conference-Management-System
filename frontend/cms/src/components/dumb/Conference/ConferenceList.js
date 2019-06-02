@@ -19,7 +19,7 @@ class ConferenceList extends React.Component {
         const {conferences} = this.props.store;
 
         const listOfConferences = conferences.map(conference => (
-            <ConferenceToggle key={uuidv1()} name={conference.name} id={conference.id} dateStart={conference.dateStart} dateStop={conference.dateStop}/>
+            <ConferenceToggle key={uuidv1()} name={conference.name} id={conference.id} dateStart={conference.dateStart} dateStop={conference.dateStop} bid={conference.bidDeadline} submit={conference.submitDeadline}/>
         ));
         console.log(conferences.length);
         return (

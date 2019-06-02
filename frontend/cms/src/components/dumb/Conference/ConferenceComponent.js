@@ -16,7 +16,7 @@ import {Link, Switch, Route} from "react-router-dom";
 import AddSectionComponent from "./AddSectionComponent";
 import Button from "@material-ui/core/Button";
 import Modal from "@material-ui/core/Modal";
-
+import Moment from 'react-moment';
 
 function getModalStyle() {
     const top = -500;
@@ -44,7 +44,9 @@ const ConfToggle = observer(class ConferenceToggle extends React.Component {
             open: false,
             expanded: null,
             name: props.name,
-            id: props.id
+            id: props.id,
+            bidDeadline: props.bid,
+            submitDeadline: props.submit,
         };
     }
 
@@ -64,12 +66,24 @@ const ConfToggle = observer(class ConferenceToggle extends React.Component {
     };
 
     show() {
+        var today = new Date();
+        var bid = new Date(this.state.bidDeadline);
+        var submit = new Date(this.state.submitDeadline);
+
         const cookies = new Cookies();
         if (cookies.get('role') === "listener") {
             return <SessionList store={storeSections} id={this.state.id}/>
         } else if (cookies.get('role') === "author") {
-            return <SessionListForAuth store={storeSections} id={this.state.id}/>
-        } else if (cookies.get('role') === "reviewer" || cookies.get('role') === "chair") {
+            if(today < submit)
+                return <SessionListForAuth store={storeSections} id={this.state.id}/>
+            else
+                return <div>Submitting period is over!</div>
+        } else if (cookies.get('role') === "reviewer") {
+            if(today < bid)
+                return <SectionListDropDown store={storeSections} id={this.state.id}/>
+            else
+                return <div>Biding period is over!</div>
+        } else if (cookies.get('role') === "chair") {
             return <SectionListDropDown store={storeSections} id={this.state.id}/>
         }
     }
