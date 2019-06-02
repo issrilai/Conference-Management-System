@@ -30,7 +30,9 @@ def reviewResult(request):
         return Response("could not find author", 400)
 
     print(qualifier, suggestions, reviewer, paper)
-    review_result = Result(qualifier=qualifier, suggestions=suggestions, rid_id=reviewer.id, prid_id=paper)
-    review_result.save()
+    result = Result.objects.filter(rid_id=reviewer.id, prid_id=paper).first()
+    result.suggestions = suggestions
+    result.qualifier = qualifier
+    result.save()
     return Response("ok", 200)
 #
