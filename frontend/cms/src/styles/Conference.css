@@ -6,6 +6,8 @@
 
 .secondaryHeading {
     font-size: 15rem;
+    flex-basis: 20%;
+    flex-shrink: 0;
   }
 
 .listItems{

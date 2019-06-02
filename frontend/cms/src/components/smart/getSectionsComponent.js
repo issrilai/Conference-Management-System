@@ -9,7 +9,6 @@ class storeSections {
                 fetch(`http://127.0.0.1:8000/api/sections/`)
             .then(data => data.json())
             .then(response => {
-                console.log(response);
                 this.sections = response;
                 this.loaded = true;
             })

@@ -127,16 +127,16 @@ input {
     display: inline-block;
     text-align: center;
     margin-top: 0;
-    margin-right:38%;
-    margin-left:38%;
+    margin-right: 38%;
+    margin-left: 38%;
     padding-top: 1.6%;
     padding-bottom: 1.6%;
     background-color: #593a8e;
     color: #dcdefc;
-    font-size:1.35em;
-    font-weight:300;
-    width:24%;
-    height:40%;
+    font-size: 1.35em;
+    font-weight: 300;
+    width: 20%;
+    height: 30%;
     border-radius: 25px;
     box-shadow:0  0 2.4px 2.4px rgba(112, 127, 130, 0.79);
 
@@ -247,11 +247,6 @@ input {
     margin-left:20%;
     margin-bottom:8%;
     width:63%;
-}
-
-.NextButton {
-    width:100%;
-    /*position: absolute;*/
 }
 
 .FormSwitcherContainer {

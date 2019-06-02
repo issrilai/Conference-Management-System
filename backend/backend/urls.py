@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
+
 from app.views import *
 from app.views.add_proposal import add_poposals, add_pdf
 from app.views.add_conference_view import AddConfereceView
@@ -27,10 +28,11 @@ from app.views.papers_reviwers_to_assign import PapersReviwersToAssign
 from app.views.proposal_view import ProposalView
 from app.views.section_view import SectionView
 from app.views.user_auth import auth, logout
-from app.views.wishtoreview_view import WishToReviewView
+
+from app.views.review_result_view import reviewResult
 from app.views.wishToReviewViewTest import TestWishToReview
 from app.views.wishtoreview_view import WishToReviewView
-from app.views.review_result_view import reviewResult
+
 
 router = routers.DefaultRouter()
 router.register(r'users', HelloView, 'user')
@@ -60,5 +62,4 @@ urlpatterns = [
     path('assign_papers/', AssignPapers.addAssign, name='assign_papers'),
     path('add-section/', AddSection.add_sections, name='add-section'),
     path('get_pdf_view/', add_pdf, name='get_pdf_view'),
-    # path('auth/', LoginView)
 ]

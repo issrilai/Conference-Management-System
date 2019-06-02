@@ -5,6 +5,7 @@ import ConferenceList from "./components/dumb/Conference/ConferenceList";
 import HeaderComponent from "./components/dumb/HeaderComponent";
 import Cookies from "universal-cookie";
 import AddConference from "./components/dumb/Conference/AddConference";
+import UpdateConference from "./components/dumb/Conference/UpdateConference";
 import storeConferences from './components/smart/getConferenceComponent';
 import storeCommitteeMembers from './components/smart/getCommitteeMembersComponent';
 import storeAssignPaperData from './components/smart/getAssignPaperDataComponent'
@@ -41,7 +42,8 @@ const RoutingBasicComponent = (props) => {
                 <Switch>
 
                     {props.logged ? <Route exact path='/addConference' render={() => <AddConference store={storeCommitteeMembers}/>}/> : ''}
-                    {props.logged ? <Route exact path='/papers' render={() => <ReviewerPapersList store={storeAssignedPapers}/>}/> : ''}
+                    {props.logged ? <Route exact path='/papers' render={() => <ReviewerPapersList store={storeAssignedPapers}/>}/> : ''}                 
+                    {props.logged ? <Route exact path='/updateConference/:confID' component={UpdateConference}/> : ''}
                     {props.logged ? <Route exact path='/assignPapers' render={() => <AssignPapersComponent store={storeAssignPaperData}/>}/> : ''}
                     {props.logged ?
                         <Route exact path='/' render={() => <ConferenceList store={storeConferences}/>}/> : <Route exact path='/' render={() => <Authentification action={props.action}/>}/> }

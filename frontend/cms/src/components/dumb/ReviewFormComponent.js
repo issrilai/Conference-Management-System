@@ -43,9 +43,7 @@ class ReviewFormComponent extends React.Component {
         e.preventDefault();
         e.stopPropagation();
         console.log('The form was submitted with the following data:');
-        console.log(this);
         const {suggestions, qualifier, reviewer, paper} = this;
-        console.log(suggestions, qualifier);
         fetch('http://127.0.0.1:8000/review-result/', {
             method: 'POST',
             headers: {
@@ -63,7 +61,6 @@ class ReviewFormComponent extends React.Component {
             return response.json();
         })
             .then(function(myJson) {
-                console.log(JSON.stringify(myJson));
             });
         console.log(JSON.stringify({
             suggestions, qualifier
@@ -82,7 +79,7 @@ class ReviewFormComponent extends React.Component {
                 <MuiThemeProvider theme={theme}>
                     <h1>Review Paper: {this.props.name}</h1>
                     <FormControl component="fieldset">
-                        <RadioGroup aria-label="position" name="qualifier" onChange={this.handleChange} row>
+                        <RadioGroup aria-label="position" name="qualifier" style={{marginTop:40}} onChange={this.handleChange} row>
                             <FormControlLabel
                                 value="strong_accept"
                                 control={<Radio color="primary"/>}
@@ -130,12 +127,13 @@ class ReviewFormComponent extends React.Component {
                             label="Suggestions"
                             multiline={true}
                             rows={2}
-                            rowsMax={4}
+                            rowsMax={10}
                             onChange={this.handleChange}
                             name="suggestions"
+                            style={{marginTop:40}}
 
                         />
-                        <button className="ConferenceButton" onClick={this.handleSubmit}>Submit</button>
+                        <button className="ConferenceButton" style={{width:100, marginTop:70}} onClick={this.handleSubmit}>Submit</button>
                     </FormControl>
                 </MuiThemeProvider>
             </React.Fragment>

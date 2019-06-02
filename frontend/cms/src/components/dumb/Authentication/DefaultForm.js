@@ -30,7 +30,7 @@ class DefaultForm extends React.Component {
 
         return (
             <React.Fragment>
-                <form className="SignUpFields">
+                <form  className="SignUpFields">
                     <div className="FRow">
                         <div className="First_Field">
                             <label className="First_Label" htmlFor="firstname">First Name</label>
@@ -69,22 +69,23 @@ class DefaultForm extends React.Component {
                             <span id="message"> </span>
                         </div>
                     </div>
-                </form>
-                <div className="FRow">
-                    <label className="First_Field">
-                    <div className="NextButton">
-                        <button onClick={loadAuthorForm} className="FormField_Link AuthorButton submit">Author</button>
+                    <div className="FRow">
+                        <label className="First_Field">
+                            <div className="NextButton">
+                                <button onClick={loadAuthorForm} className="FormField_Link AuthorButton submit">Author</button>
+                            </div>
+                        </label>
+                        <label className="First_Field">
+                            <div className="NextButton">
+                                <button onClick={loadPCMemberForm} className="FormField_Link PcButton submit">Pc member</button>
+                            </div>
+                        </label>
                     </div>
-                    </label>
-                    <label className="First_Field">
-                        <div className="NextButton">
-                            <button onClick={loadPCMemberForm} className="FormField_Link PcButton submit">Pc member</button>
-                        </div>
-                    </label>
-                </div>
-                <div className="NextButton">
-                    <button className="FormField_Link submit"  onClick={handleSubmit}>Listener</button>
-                </div>
+                    <div className="NextButton">
+                        <button type="submit" className="FormField_Link submit"  onClick={handleSubmit}>Listener</button>
+                    </div>
+                </form>
+
 
             </React.Fragment>
         );
