@@ -41,7 +41,7 @@ class HeaderComponent extends React.Component
                 <div className="root">
                     <AppBar position="static" color="primary">
                         <Toolbar>
-                            <img src={require('../../styles/logo.png')} style={{width: "20%", height: "100%"}}/>
+                            <img src={require('../../styles/logo.png')} style={{width: "15%"}}/>
                             <Typography variant="h6" color="inherit" className="grow">
                             </Typography>
                             <div style={{align: "right"}}>

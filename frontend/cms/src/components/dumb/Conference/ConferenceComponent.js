@@ -78,7 +78,7 @@ const ConfToggle = observer(class ConferenceToggle extends React.Component {
         const cookies = new Cookies();
         if (cookies.get('role') === "chair") {
             return <div>
-                <Button onClick={() => this.handleOpen(this.state.id)} style={{float: 'right'}}>Add section</Button>
+                <Button onClick={() => this.handleOpen(this.state.id)}>Add section</Button>
                 <Modal
                     aria-labelledby="simple-modal-title"
                     aria-describedby="simple-modal-description"
