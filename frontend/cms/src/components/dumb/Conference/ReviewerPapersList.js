@@ -68,6 +68,7 @@ class PapersList extends React.Component {
                     aria-describedby="simple-modal-description"
                     open={this.state.open}
                     onClose={this.handleClose}
+                    style={{width: 70 + '%', marginLeft: 15 + '%', marginRight: 15 + '%'}}
                 >
                     <div style={getModalStyle()} className="paper">
                         <ReviewFormComponent name={paper.prid.name} pid={paper.prid.id} />

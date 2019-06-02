@@ -77,8 +77,8 @@ class ReviewFormComponent extends React.Component {
         return (
             <React.Fragment>
                 <MuiThemeProvider theme={theme}>
-                    <h1>Review Paper: {this.props.name}</h1>
-                    <FormControl component="fieldset">
+                    <h1 style={{marginLeft: 5 + '%', paddingTop: 20 + 'px'}}>Review Paper: {this.props.name}</h1>
+                    <FormControl component="fieldset" style={{paddingLeft: 4 + '%', paddingRight: 4 + '%', width: 92 + '%'}}>
                         <RadioGroup aria-label="position" name="qualifier" style={{marginTop:40}} onChange={this.handleChange} row>
                             <FormControlLabel
                                 value="strong_accept"
