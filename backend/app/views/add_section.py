@@ -17,7 +17,7 @@ class AddSection:
         endHour = body['endHour']
         confId = body['confId']
         session_key = body['session_key']
-
+        chair = None
         try:
             session = Session.objects.get(session_key=session_key)
         except ObjectDoesNotExist as e:
@@ -25,20 +25,20 @@ class AddSection:
 
         try:
             uid = session.get_decoded().get('uid')
-            pcmember = ProgramCommitteeMember.objects.get(uid_id=uid);
+            pcmember = ProgramCommitteeMember.objects.get(uid_id=uid)
         except ObjectDoesNotExist as e:
             return Response("could not find pc member", 400)
 
         if pcmember is not None:
             try:
-                pcid = pcmember.id;
+                pcid = pcmember.id
                 chair = Chair.objects.get(pcid_id=pcid)
             except ObjectDoesNotExist as e:
                 return Response("could not find chair", 400)
 
         if chair is not None:
             section = Section.objects.create(name=name, startHour=startHour, endHour=endHour,
-                                               chair_id=chair.id, confid_id=confId)
+                                             chair_id=chair.id, confid_id=confId)
             return Response("ok", 200)
         else:
             return Response("couldn't add section", 400)
