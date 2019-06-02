@@ -134,7 +134,7 @@ class AddSectionComponent extends  Component {
                         />
                     </div>
 
-                    <div className="NextButton NextButtonAuthor">
+                    <div>
                         <input type="submit" className="FormField_Link"/>
                     </div>
                 </form>

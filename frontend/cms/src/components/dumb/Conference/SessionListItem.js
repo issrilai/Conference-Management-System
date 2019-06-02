@@ -8,19 +8,12 @@ import React from "react";
 
 
 function getModalStyle() {
-    const top = -500;
-    const left = -500;
-
     return {
-        width: 750,
+        width: 70+'%',
         height:460,
-        marginLeft:380,
-        marginTop:80,
-
-
-        top: `${top}%`,
-        left: `${left}%`,
-        transform: `translate(-${top}%, -${left}%)`,
+        marginLeft:15+'%',
+        marginRight:15+'%',
+        marginTop:30,
     };
 }
 

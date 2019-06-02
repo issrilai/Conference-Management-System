@@ -159,7 +159,7 @@ class AuthorProposalComponent extends  Component {
                         <div className="submitText">Submit the proposal in PDF format</div>
                         <input required type="file" accept="application/pdf" className="inputPdf" name="proposal" value={proposal} onChange={this.handleChange} />
                     </div>
-                    <div className="NextButton NextButtonAuthor">
+                    <div>
                         <input type="submit" className="FormField_Link"/>
                     </div>
                 </form>
